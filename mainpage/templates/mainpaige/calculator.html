@@ -1,0 +1,13 @@
+{% extends 'mainpage/base.html' %}
+
+{% block title %}
+  Калькулятор
+{% endblock %}
+
+{% block body %}
+    <h1>Калькулятор</h1>
+    <form action="{% url 'mainpage:main' %}">
+        <button type="submit">Главная страница</button>
+    </form>
+
+{% endblock %}

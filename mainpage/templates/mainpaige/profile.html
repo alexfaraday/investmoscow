@@ -1,0 +1,22 @@
+{% extends 'myauth/base.html' %}
+
+{% block title %}
+  Профиль
+{% endblock %}
+
+{% block body %}
+    <h1>Профиль {{ user.username }}</h1>
+    <p>Фамилия: {{ user.profile.name }}</p>
+    <p>Имя: {{ user.profile.surname }}</p>
+    <p>Отчество: {{ user.profile.middle_name}}</p>
+    <p>Email: {{ user.profile.email }}</p>
+    <p>ИНН: {{ user.profile.organization }}</p>
+    <p>Сайт: {{ user.profile.site }}</p>
+    <p>Страна: {{ user.profile.country }}</p>
+    <p>Город: {{ user.profile.city }}</p>
+    <p>Должность: {{ user.profile.position }}</p>
+
+    <form action="{% url 'mainpage:main' %}">
+        <button type="submit">Главная страница</button>
+    </form>
+{% endblock %}
