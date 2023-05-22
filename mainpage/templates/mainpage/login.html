@@ -5,15 +5,25 @@
 {% endblock %}
 
 {% block body %}
-  <form method="post">
+<div class="container">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+
+          <form method="post">
     {% csrf_token %}
 
-    {{ form.as_p }}
+    {{ form.as_p|crispy }}
     <div>
       <p><a href="{% url 'mainpage:register' %}">Регистрация</a></p>
     </div>
     <button type="submit">Login</button>
   </form>
+
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    </div>
 
 
 {% endblock %}
