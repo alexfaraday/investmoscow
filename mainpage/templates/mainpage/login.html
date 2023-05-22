@@ -14,7 +14,7 @@
           <form method="post">
     {% csrf_token %}
 
-    {{ form.as_p|crispy }}
+    {{ form.as_p|as_bootstrap }}
     <div>
       <p><a href="{% url 'mainpage:register' %}">Регистрация</a></p>
     </div>
