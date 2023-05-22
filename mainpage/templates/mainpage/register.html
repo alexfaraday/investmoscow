@@ -16,11 +16,13 @@
 
             <div class="card shadow">
              <h1>Регистрация</h1>
+                <div class="container">
     <form method="post">
         {% csrf_token %}
         {{ form|crispy }}
         <input type="submit" class="btn btn-primary" value="Регистрация">
     </form>
+</div>
 </div>
 
 
