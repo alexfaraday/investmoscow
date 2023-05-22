@@ -10,17 +10,18 @@
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10">
-
+<div class="container">
           <form method="post">
     {% csrf_token %}
 
-    {{ form.as_p }}
+   {{ form|crispy }}
     <div>
       <p><a href="{% url 'mainpage:register' %}">Регистрация</a></p>
     </div>
     <button class="btn btn-primary" type="submit">Login</button>
   </form>
 
+        </div>
         </div>
         <div class="col-md-1"></div>
     </div>
