@@ -6,6 +6,10 @@
 
 {% block body %}
 {% load crispy_forms_tags %}
+<br>
+<br>
+<br>
+<br>
 <div class="container">
     <div class="row">
         <div class="col-md-1"></div>
@@ -15,7 +19,7 @@
 
 
             <div class="card shadow">
-             <h1>Регистрация</h1>
+             <h1 class="text-center">Регистрация</h1>
                 <div class="container">
     <form method="post">
         {% csrf_token %}
@@ -34,4 +38,8 @@
     </div>
 
 </div>
+<br>
+<br>
+<br>
+<br>
 {% endblock %}
