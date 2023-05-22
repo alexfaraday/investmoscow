@@ -18,8 +18,8 @@
              <h1>Регистрация</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p|crispy }}
-        <input type="submit" value="Регистрация">
+        {{ form.as_p|as_bootstrap}}
+        <input type="submit" class="btn btn-primary" value="Регистрация">
     </form>
 </div>
 
