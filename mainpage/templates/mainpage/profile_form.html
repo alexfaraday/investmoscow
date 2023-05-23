@@ -1,0 +1,16 @@
+{% extends 'myauth/base.html' %}
+
+{% block title %}
+    Редактировать профиль
+{% endblock %}
+
+{% block body %}
+    <h1>Профиль</h1>
+
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" >Редактировать</button>
+    </form>
+{% endblock %}

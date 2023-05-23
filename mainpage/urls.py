@@ -1,13 +1,15 @@
-from django.contrib import admin
 from django.contrib.auth.views import LoginView
 from django.urls import path
-from .views import registration, ProfileView, MyLogoutView, MainView, CalculatorView
+from .views import MyLogoutView, MainView, CalculatorView, registration, ProfileDetailView, ProfileUpdateView
 
 
 app_name = "mainpage"
 urlpatterns = [
     path('register/', registration, name="register"),
-    path('main/profile/', ProfileView.as_view(), name="profile"),
+    path('main/calculator/', CalculatorView.as_view(), name="calculator"),
+    path('main/<int:pk>/update/', ProfileUpdateView.as_view(), name="profile_update"),
+    path('main/<int:pk>/', ProfileDetailView.as_view(), name="profile"),
+
     path('logout/', MyLogoutView.as_view(), name="logout"),
     path("",
          LoginView.as_view(
@@ -17,5 +19,4 @@ urlpatterns = [
          ),
          name="login"),
     path('main/', MainView.as_view(), name="main"),
-    path('main/calculator/', CalculatorView.as_view(), name="calculator")
 ]

@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mainpage.apps.MainpageConfig',
-'crispy_forms',
-"crispy_bootstrap5",
+    'crispy_forms',
+    "crispy_bootstrap5",
 ]
 
 
@@ -133,4 +133,4 @@ STATIC_ROOT = '/home/c/cp31594/django_gsvno/public_htmlstatic'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-LOGIN_REDIRECT_URL='main/profile/'
+LOGIN_REDIRECT_URL = 'main/profile/'
