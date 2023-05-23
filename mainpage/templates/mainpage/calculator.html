@@ -5,10 +5,50 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Калькулятор2</h1>
-    <form action="{% url 'mainpage:main' %}">
+<div class="container">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+
+<br><br>
+               <h1>Калькулятор</h1>
+            <div class="card shadow">
+
+                 <form action="{% url 'mainpage:main' %}">
       {{ form|crispy }}
+                     <br>
         <button type="submit" class="btn btn-primary">Получить результат</button>
     </form>
+
+
+            </div>
+ <br><br>
+
+
+
+
+
+
+
+        </div>
+        <div class="col-1"></div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+</div>
+
 
 {% endblock %}
