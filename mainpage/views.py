@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView
 from .models import Profile
 from .forms import SignUpForm
+from .models import Order_Varibles
 
 
 class MyLogoutView(LogoutView):
@@ -20,8 +21,10 @@ class MainView(TemplateView):
     template_name = "mainpage/main.html"
 
 
-class CalculatorView(TemplateView):
+class CalculatorView(CreateView):
+    model = Order_Varibles
     template_name = "mainpage/calculator.html"
+    success_url = '/'
 
 
 def registration(request):
