@@ -23,6 +23,7 @@ class MainView(TemplateView):
 
 class CalculatorView(CreateView):
     model = Order_Varibles
+    fields = '__all__'
     template_name = "mainpage/calculator.html"
     success_url = '/'
 
