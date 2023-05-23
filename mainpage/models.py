@@ -20,6 +20,8 @@ class Profile(models.Model):
     position = models.CharField(max_length=100)
 class BusinessType(models.Model):
     name=models.CharField(max_length=400)
+    def __str__(self):
+        return self.name
 
 class Order_Varibles(models.Model):
     industry_type = models.CharField(max_length=100)
