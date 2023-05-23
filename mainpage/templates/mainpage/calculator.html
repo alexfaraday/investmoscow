@@ -1,5 +1,5 @@
 {% extends 'mainpage/base.html' %}
-
+{% load crispy_forms_tags %}
 {% block title %}
   Калькулятор
 {% endblock %}
@@ -7,7 +7,8 @@
 {% block body %}
     <h1>Калькулятор2</h1>
     <form action="{% url 'mainpage:main' %}">
-        <button type="submit">Главная страница</button>
+      {{ form|crispy }}
+        <button type="submit" class="btn btn-primary">Получить результат</button>
     </form>
 
 {% endblock %}
