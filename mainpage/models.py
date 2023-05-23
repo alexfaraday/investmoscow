@@ -16,7 +16,7 @@ class Profile(models.Model):
     middle_name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
     organization = models.CharField(max_length=100)
-    inn = models.CharField(max_length=100)
+    inn = models.CharField(max_length=100, blank=True)
     site = models.CharField(max_length=100)
     branch = models.ForeignKey(Branch, on_delete=models.CASCADE)
     country = models.CharField(max_length=100)
