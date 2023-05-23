@@ -18,6 +18,8 @@ class Profile(models.Model):
     country = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
     position = models.CharField(max_length=100)
+class BusinessType(models.Model):
+    name=models.CharField(max_length=400)
 
 class Order_Varibles(models.Model):
     industry_type = models.CharField(max_length=100)
@@ -34,8 +36,6 @@ class Order_Varibles(models.Model):
     is_patent_use=models.BooleanField(default=False )
 
 
-class BusinessType(models.Model):
-    name=models.CharField(max_length=400)
 
 class order_instruments(models.Model):
     instrument_name=models.CharField(max_length=100)
