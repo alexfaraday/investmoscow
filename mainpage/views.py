@@ -1,20 +1,18 @@
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LogoutView
-from django.http import HttpRequest
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login, logout
-from django.urls import reverse_lazy
-from django.views.generic import TemplateView,ListView,CreateView
-from .models import Profile
-from .forms import SignUpForm
-from .models import Order_Varibles
+from django.contrib.auth import authenticate, login
+from django.urls import reverse_lazy, reverse
+from django.views import View
+from django.views.generic import TemplateView, UpdateView, CreateView
+from .models import Profile, Order_Varibles
+from .forms import ProfileForm
+from django import forms
 
 
 class MyLogoutView(LogoutView):
     next_page = reverse_lazy('mainpage:login')
-
-
-class ProfileView(TemplateView):
-    template_name = "mainpage/profile.html"
 
 
 class MainView(TemplateView):
@@ -29,26 +27,56 @@ class CalculatorView(CreateView):
 
 
 def registration(request):
-
     if request.method == 'POST':
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            Profile.objects.create(user=user,
-                                   name=form.cleaned_data.get('name'),
-                                   surname=form.cleaned_data.get('surname'),
-                                   middle_name=form.cleaned_data.get('middle_name'),
-                                   email=form.cleaned_data.get('email'),
-                                   organization=form.cleaned_data.get('organization'),
-                                   site=form.cleaned_data.get('site'),
-                                   country=form.cleaned_data.get('country'),
-                                   city=form.cleaned_data.get('city'),
-                                   position=form.cleaned_data.get('position')
-                                   )
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=user.username, password=raw_password)
+        form1 = UserCreationForm(request.POST)
+        form2 = ProfileForm(request.POST)
+        if form1.is_valid() and form2.is_valid():
+            form1.save()
+            form2.save()
+            # получаем имя пользователя и пароль из формы
+            username = form1.cleaned_data.get('username')
+            password = form1.cleaned_data.get('password1')
+            name = form2.cleaned_data.get('name')
+            surname = form2.cleaned_data.get('surname')
+            middle_name = form2.cleaned_data.get('middle_name')
+            email = form2.cleaned_data.get('email')
+            organization = form2.cleaned_data.get('organization')
+            inn = form2.cleaned_data.get('inn')
+            site = form2.cleaned_data.get('site')
+            branch = form2.cleaned_data.get('branch')
+            country = form2.cleaned_data.get('country')
+            city = form2.cleaned_data.get('city')
+            position = form2.cleaned_data.get('position')
+            # выполняем аутентификацию
+            user = authenticate(username=username, password=password)
             login(request, user)
+            Profile.objects.create(user=request.user, name=name, surname=surname, middle_name=middle_name,
+                                   email=email, organization=organization, inn=inn, site=site, branch=branch,
+                                   country=country, city=city, position=position)
             return render(request, 'mainpage/main.html')
     else:
-        form = SignUpForm()
-    return render(request, 'mainpage/register.html', {'form': form})
+        form1 = UserCreationForm()
+        form2 = ProfileForm()
+    return render(request, 'mainpage/register.html', {'form1': form1, 'form2': form2})
+
+
+class ProfileDetailView(View):
+    def get(self, request: HttpRequest, pk: int) -> HttpResponse:
+        profile = Profile.objects.get(user=request.user)
+        context = {
+            "profile": profile
+        }
+        return render(request, 'mainpage/profile.html', context=context)
+
+
+class ProfileUpdateView(UpdateView):
+    model = Profile
+    form_class = ProfileForm
+
+    def form_valid(self, form: forms.Form):
+        if form.is_valid():
+            return super(ProfileUpdateView, self).form_valid(form)
+        return self.form_invalid(form)
+
+    def get_success_url(self):
+        return reverse('mainpage:profile', kwargs={'pk': self.object.id})

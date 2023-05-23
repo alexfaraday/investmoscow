@@ -9,7 +9,7 @@
     <form action="{% url 'mainpage:calculator' %}">
         <button type="submit">Калькулятор</button>
     </form>
-    <form action="{% url 'mainpage:profile' %}">
+    <form action="{% url 'mainpage:profile' pk=user.profile.pk %}">
         <button type="submit">Профиль</button>
     </form>
 
