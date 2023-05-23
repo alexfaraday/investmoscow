@@ -78,9 +78,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'site1.wsgi.application'
 
-STATICFILES_DIRS = (
-    os.path.join('/home/c/cp31594/django_gsvno/', 'public_htmlstatic'),
-)
+
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
