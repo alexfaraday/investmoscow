@@ -19,5 +19,26 @@ class Profile(models.Model):
     city = models.CharField(max_length=100)
     position = models.CharField(max_length=100)
 
+class Order_Varibles(models.Model):
+    industry_type = models.CharField(max_length=100)
+    organisation_type = models.CharField(max_length=100)
+    worker_amount = models.IntegerField(max_length=99999)
+    area_type=models.CharField(max_length=100)
+    area_is_special_economic =models.BooleanField(default=False )
+    business_type = models.ForeignKey(BusinessType, on_delete=models.CASCADE)
+    area_yardage =models.IntegerField(max_length=999999)
+    building_yardage =models.IntegerField(max_length=999999)
+    need_water=models.BooleanField(default=False )
+    need_gas=models.BooleanField(default=False )
+    need_electricity=models.BooleanField(default=False )
+    is_patent_use=models.BooleanField(default=False )
 
 
+class BusinessType(models.Model):
+    name=models.CharField(max_length=400)
+
+class order_instruments(models.Model):
+    instrument_name=models.CharField(max_length=100)
+    instrument_amount=models.IntegerField(max_length=999999)
+    instrument_price=models.IntegerField(max_length=999999)
+    order=models.ForeignKey(Order_Varibles, on_delete=models.CASCADE)
