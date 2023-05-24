@@ -7,7 +7,7 @@ from django.urls import reverse_lazy, reverse
 from django.views import View
 from django.views.generic import TemplateView, UpdateView, CreateView
 from .models import Profile, Order_Varibles
-from .forms import ProfileForm
+from .forms import ProfileForm,CalculatorForm
 from django import forms
 
 
@@ -20,8 +20,10 @@ class MainView(TemplateView):
 
 
 class CalculatorView(CreateView):
-    model = Order_Varibles
-    fields = '__all__'
+    #model = Order_Varibles
+    #fields = '__all__'
+    form_class = CalculatorForm
+
     template_name = "mainpage/calculator.html"
     success_url = '/'
 
