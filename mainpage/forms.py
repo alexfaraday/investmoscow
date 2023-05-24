@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Profile, Branch
+from .models import Profile, Branch, Order_Varibles
 
 
 class ProfileForm(ModelForm):
@@ -21,3 +21,25 @@ class ProfileForm(ModelForm):
         model = Profile
         fields = ['surname', 'name', 'middle_name', 'email', 'organization', 'inn',
                   'site', 'branch', 'country', 'city', 'position']
+
+
+class CalculatorForm(forms.ModelForm):
+    class Meta:
+        model = Order_Varibles
+        fields = ['industry_type', 'organisation_type', 'worker_amount','area_type','area_is_special_economic','business_type','area_yardage','building_yardage','need_water',
+                  'need_gas','need_electricity', 'is_patent_use','company_type']
+        labels = {'industry_type':'Отрасль ведения хозяйственной деятельности',
+                  'organisation_type':'Организационно-правовая форма',
+        'worker_amount':'Количество сотрудников',
+        'area_type':'Территория расположения производства',
+        'area_is_special_economic':'Размещение в особой экономической зоне',
+        'business_type':'Тип реализации проекта',
+        'area_yardage':'Площадь производства',
+        'building_yardage':'Площадь здания',
+        'need_water':'Необходимо подключение к водопроводу',
+                  'need_gas':'Необходимо подключение к газу',
+        'need_electricity':'Необходимо подключение к электричеству',
+
+        'is_patent_use':'Использовать патент' }
+
+

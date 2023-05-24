@@ -33,7 +33,7 @@ class BusinessType(models.Model): #Аренда/строительство
 
 class Order_Varibles(models.Model): #калькулятор
     industry_type = models.CharField(max_length=100)
-    organisation_type = models.CharField(max_length=100)
+    organisation_type = models.ForeignKey(company_type, on_delete=models.CASCADE)
     worker_amount = models.IntegerField(max_length=99999)
     area_type = models.CharField(max_length=100)
     area_is_special_economic = models.BooleanField(default=False )
@@ -46,8 +46,14 @@ class Order_Varibles(models.Model): #калькулятор
     is_patent_use = models.BooleanField(default=False )
 
 
+
 class order_instruments(models.Model): #Станок
     instrument_name = models.CharField(max_length=100)
     instrument_amount = models.IntegerField(max_length=999999)
     instrument_price = models.IntegerField(max_length=999999)
     order = models.ForeignKey(Order_Varibles, on_delete=models.CASCADE)
+
+class company_type(models.Model): #Организационно правовая форма
+    type_name = models.CharField(max_length=100)
+    def __str__(self):
+        return self.name
