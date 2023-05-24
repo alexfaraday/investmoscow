@@ -29,6 +29,10 @@ class BusinessType(models.Model): #Аренда/строительство
 
     def __str__(self):
         return self.name
+class company_type(models.Model): #Организационно правовая форма
+    type_name = models.CharField(max_length=100)
+    def __str__(self):
+        return self.name
 
 
 class Order_Varibles(models.Model): #калькулятор
@@ -53,7 +57,3 @@ class order_instruments(models.Model): #Станок
     instrument_price = models.IntegerField(max_length=999999)
     order = models.ForeignKey(Order_Varibles, on_delete=models.CASCADE)
 
-class company_type(models.Model): #Организационно правовая форма
-    type_name = models.CharField(max_length=100)
-    def __str__(self):
-        return self.name
