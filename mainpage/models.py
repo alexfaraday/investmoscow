@@ -37,7 +37,7 @@ class company_type(models.Model): #Организационно правовая
 
 class Order_Varibles(models.Model): #калькулятор
     industry_type = models.CharField(max_length=100)
-    organisation_type = models.ForeignKey(company_type, on_delete=models.CASCADE)
+    organisation_type = models.CharField(max_length=100)
     worker_amount = models.IntegerField(max_length=99999)
     area_type = models.CharField(max_length=100)
     area_is_special_economic = models.BooleanField(default=False )
