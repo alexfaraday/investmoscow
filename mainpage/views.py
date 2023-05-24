@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login
 from django.urls import reverse_lazy, reverse
 from django.views import View
 from django.views.generic import TemplateView, UpdateView, CreateView
-from .models import Profile, Order_Varibles
+from .models import Order_Varibles #Profile,
 from .forms import ProfileForm
 from django import forms
 
