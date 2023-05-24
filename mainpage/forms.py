@@ -27,7 +27,7 @@ class CalculatorForm(forms.ModelForm):
     class Meta:
         model = Order_Varibles
         fields = ['industry_type', 'organisation_type', 'worker_amount','area_type','area_is_special_economic','business_type','area_yardage','building_yardage','need_water',
-                  'need_gas','need_electricity', 'is_patent_use','company_type']
+                  'need_gas','need_electricity', 'is_patent_use']
         labels = {'industry_type':'Отрасль ведения хозяйственной деятельности',
                   'organisation_type':'Организационно-правовая форма',
         'worker_amount':'Количество сотрудников',
