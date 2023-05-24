@@ -32,7 +32,7 @@ class BusinessType(models.Model): #Аренда/строительство
 class company_type(models.Model): #Организационно правовая форма
     type_name = models.CharField(max_length=100)
     def __str__(self):
-        return self.name
+        return self.type_name
 
 
 class Order_Varibles(models.Model): #калькулятор
