@@ -11,7 +11,7 @@ urlpatterns = [
     path('main/<int:pk>/', ProfileDetailView.as_view(), name="profile"),
 
     path('logout/', MyLogoutView.as_view(), name="logout"),
-    path("",
+    path("login/",
          LoginView.as_view(
              template_name="mainpage/login.html",
 
@@ -19,5 +19,4 @@ urlpatterns = [
          ),
          name="login"),
     path('main/', MainView.as_view(), name="main"),
-    path("login/",LoginView.as_view(template_name="mainpage/login.html",redirect_authenticated_user=True,),
-]
+    ]
