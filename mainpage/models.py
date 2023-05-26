@@ -36,6 +36,8 @@ class company_type(models.Model): #Организационно правовая
 
 class Moscow_zone(models.Model):
     name = models.CharField(max_length=100)#районы Москвы
+    def __str__(self):
+        return self.name
 
 
 class Order_Varibles(models.Model): #калькулятор
@@ -65,3 +67,11 @@ class CostCapitalConstraction(models.Model): #Стоимость капитал�
     max_CostCapitalConstraction = models.IntegerField(max_length=99999999)
 
 
+class Accounting(models.Model): #Бухгалтерский учет
+    name = models.CharField(max_length=1000)
+    min_osn = models.IntegerField(max_length=100000)
+    max_osn = models.IntegerField(max_length=100000)
+    min_usn = models.IntegerField(max_length=10000)
+    max_usn = models.IntegerField(max_length=10000)
+    min_patent = models.IntegerField(max_length=10000)
+    max_patent = models.IntegerField(max_length=10000)

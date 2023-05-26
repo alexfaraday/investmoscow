@@ -15,10 +15,10 @@
             <div class="card shadow">
                 <div class="container">
 <br>
-                 <form action="{% url 'mainpage:main' %}">
+                 <form method="POST" action="">
       {{ form|crispy }}
                      <br>
-        <button type="submit" class="btn " style="background-color:#e7372c">Получить результат</button>
+        <button type="submit" class="btn text-white font-weight-bold" >Получить результат</button>
     </form>
 <br>
 <br>
