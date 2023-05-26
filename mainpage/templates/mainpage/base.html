@@ -75,11 +75,11 @@ font-display: optional;
 {% if  request.user.is_authenticated %}
 <div class="dropdown">
   <button style="background-color: #cc2222" class="btn btn-primary dropdown-toggle tex-white border-0 " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-   Профиль, {{ request.user }}
+  <i class="bi bi-person-fill"></i> Профиль, {{ request.user }}
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" href="/main/{{ request.user.pk }}"></a>Мой профиль</a></li>
-    <li><a class="dropdown-item" href="/main/{{ request.user.pk }}/update/"></a>Обновить профиль</a></li>
+    <li><a class="dropdown-item" href="/main/{{ request.user.pk }}">Мой профиль</a></li>
+    <li><a class="dropdown-item" href="/main/{{ request.user.pk }}/update/">Обновить профиль</a></li>
 
     <li> <a class="nav-link active" style="color:black" href="/logout" tabindex="-1" ><b> Выйти</b></a></li>
   </ul>
