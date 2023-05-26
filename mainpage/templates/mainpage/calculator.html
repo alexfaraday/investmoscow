@@ -16,9 +16,10 @@
                 <div class="container">
 <br>
                  <form method="POST" action="">
+                            {% csrf_token %}
       {{ form|crispy }}
                      <br>
-        <button type="submit" class="btn text-white font-weight-bold" >Получить результат</button>
+        <button type="submit" class="btn text-white font-weight-bold" style="background-color:#cc2222">Получить результат</button>
     </form>
 <br>
 <br>
