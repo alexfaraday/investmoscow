@@ -50,7 +50,7 @@ font-display: optional;
           <a class="nav-link text-white"  style="" href="/main/calculator/" tabindex="-1" aria-disabled="true"><b>Калькулятор</b></a>
         </li>
           <li class="nav-item ml-auto">
-          <a class="nav-link  text-white" style="" href="/main/profile/" tabindex="-1" aria-disabled="true"><b>Профиль</b></a>
+          <a class="nav-link  text-white" style="" href="/main/{{ request.user.pk }}" tabindex="-1" aria-disabled="true"><b>Профиль</b></a>
         </li>
 
 
@@ -78,7 +78,8 @@ font-display: optional;
    Профиль, {{ request.user }}
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" href="/main/{{ request.user.id }}"></a>Мой профиль</a></li>
+    <li><a class="dropdown-item" href="/main/{{ request.user.pk }}"></a>Мой профиль</a></li>
+    <li><a class="dropdown-item" href="/main/{{ request.user.pk }}/update/"></a>Обновить профиль</a></li>
 
     <li> <a class="nav-link active" style="color:black" href="/logout" tabindex="-1" ><b> Выйти</b></a></li>
   </ul>
