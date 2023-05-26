@@ -61,7 +61,7 @@ class order_instruments(models.Model): #Станок
     order = models.ForeignKey(Order_Varibles, on_delete=models.CASCADE)
 
 class CostCapitalConstraction(models.Model): #Стоимость капитального строительства
-    min_CostCapitalConstraction = IntegerField(max_length=99999999)
-    max_CostCapitalConstraction = IntegerField(max_length=99999999)
+    min_CostCapitalConstraction = models.IntegerField(max_length=99999999)
+    max_CostCapitalConstraction = models.IntegerField(max_length=99999999)
 
 
