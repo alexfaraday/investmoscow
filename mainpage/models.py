@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Branch(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100) #отрасль
 
     def __str__(self):
         return self.name
@@ -34,12 +34,15 @@ class company_type(models.Model): #Организационно правовая
     def __str__(self):
         return self.type_name
 
+class Moscow_zone(models.Model):
+    name = models.CharField(max_length=100)#районы Москвы
+
 
 class Order_Varibles(models.Model): #калькулятор
-    industry_type = models.ForeignKey(Branch, on_delete=models.CASCADE)
-    organisation_type = models.ForeignKey(company_type, on_delete=models.CASCADE)
-    worker_amount = models.IntegerField(max_length=99999)
-    area_type = models.CharField(max_length=100)
+    industry_type = models.ForeignKey(Branch, on_delete=models.CASCADE) #отрасль
+    organisation_type = models.ForeignKey(company_type, on_delete=models.CASCADE) #ООПФ
+    worker_amount = models.IntegerField(max_length=99999)# количество сотрудников
+    area_type = models.ForeignKey(Moscow_zone, on_delete=models.CASCADE)  #район расположения
     area_is_special_economic = models.BooleanField(default=False )
     business_type = models.ForeignKey(BusinessType, on_delete=models.CASCADE)
     area_yardage = models.IntegerField(max_length=999999)

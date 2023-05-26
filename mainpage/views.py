@@ -74,11 +74,13 @@ class ProfileDetailView(View):
 class ProfileUpdateView(UpdateView):
     model = Profile
     form_class = ProfileForm
+    success_url = '/'
 
     def form_valid(self, form: forms.Form):
         if form.is_valid():
             return super(ProfileUpdateView, self).form_valid(form)
         return self.form_invalid(form)
 
-    def get_success_url(self):
-        return reverse('mainpage:profile', kwargs={'pk': self.object.id})
+
+    #def get_success_url(self):
+     #   return reverse('mainpage:profile', kwargs={'pk': self.object.id})

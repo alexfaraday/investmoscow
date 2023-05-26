@@ -7,6 +7,7 @@
         {% endblock %}
     </title>
   {% load static %}
+     <link rel = "icon" type = "image/png" href = "{% static '/images/logoinvest.ico' %}">
     <link href="https://fonts.cdnfonts.com/css/tt-norms-pro" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
@@ -77,13 +78,14 @@ font-display: optional;
    Профиль, {{ request.user }}
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" href="">Мой профиль</a></li>
-    <li><a class="dropdown-item" href="/settings">Настройки</a></li>
-    <li> <a class="nav-link active" style="color:black" href="/logout/logout" tabindex="-1" ><b> Выйти 	</b></a></li>
+    <li><a class="dropdown-item" href="/main/{{ request.user.id }}"></a>Мой профиль</a></li>
+
+    <li> <a class="nav-link active" style="color:black" href="/logout" tabindex="-1" ><b> Выйти</b></a></li>
   </ul>
 </div>
 {% else %}
-  <a class="nav-link text-white btn " style="background:#464195" href="/register" tabindex="-1" ><b>Войти/Регистрация</b></a>
+  <a class="nav-link text-white"  href="/login" tabindex="-1" ><b><i class="bi bi-person-fill"></i>
+Личный кабинет</b></a>
 
 
 
