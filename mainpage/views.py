@@ -76,6 +76,7 @@ class ProfileUpdateView(UpdateView):
     form_class = ProfileForm
     success_url = '/'
 
+
     def form_valid(self, form: forms.Form):
         if form.is_valid():
             return super(ProfileUpdateView, self).form_valid(form)
