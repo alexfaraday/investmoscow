@@ -60,3 +60,48 @@ class order_instruments(models.Model): #Станок
     instrument_price = models.IntegerField(max_length=999999)
     order = models.ForeignKey(Order_Varibles, on_delete=models.CASCADE)
 
+class CostCapitalConstraction(models.Model): #Стоимость капитального строительства
+    min = models.IntegerField(max_length=100)
+    max = models.IntegerField(max_length=100)
+
+
+class Accounting(models.Model): #Бухгалтерский учет
+    name = models.CharField(max_length=100)
+    min_osn = models.IntegerField(max_length=10)
+    max_osn = models.IntegerField(max_length=10)
+    min_usn = models.IntegerField(max_length=10)
+    max_usn = models.IntegerField(max_length=10)
+    min_patent = models.IntegerField(max_length=10)
+    max_patent = models.IntegerField(max_length=10)
+
+
+class StateDuty(models.Model): #Госпошлина
+    name = models.CharField(max_length=100)
+    cost = models.IntegerField(max_length=10)
+
+
+class Industry_data(models.Model): #Обезличенные данные
+    main_branch = models.CharField(max_length=1000)
+    sub_branch = models.CharField(max_length=1000)
+    average_number_staff = models.DecimalField(max_length=100)
+    average_salary = models.DecimalField(max_length=100)
+    taxes_to_budget = models.DecimalField(max_length=100)
+    income_tax = models.DecimalField(max_length=100)
+    property_tax = models.DecimalField(max_length=100)
+    land_tax = models.DecimalField(max_length=100)
+    ndfl = models.DecimalField(max_length=100)
+    transport_tax = models.DecimalField(max_length=100)
+    other_taxes = models.DecimalField(max_length=100)
+
+
+class Machines_price(models.Model): #Станки средняя цена
+    equipment_type = models.CharField(max_length=100)
+    average_cost_dol = models.DecimalField(max_length=100)
+    avegare_price_rub = models.DecimalField(max_length=100)
+
+
+class CadastravalValue(models.Model): #Средняя кадастровая стоимость
+    district = models.CharField(max_length=100)
+    cost = models.DecimalField(max_length=100)
+
+
