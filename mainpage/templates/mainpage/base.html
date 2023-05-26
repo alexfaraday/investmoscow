@@ -78,8 +78,8 @@ font-display: optional;
    Профиль, {{ request.user }}
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" href="/main/{{ request.user.pk }}"></a>Мой профиль</a></li>
-    <li><a class="dropdown-item" href="/main/{{ request.user.pk }}/update/"></a>Обновить профиль</a></li>
+    <li><a class="dropdown-item" href="/main/{{ request.user.pk }}">Мой профиль</a></li>
+    <li><a class="dropdown-item" href="/main/{{ request.user.pk }}/update/">Обновить профиль</a></li>
 
     <li> <a class="nav-link active" style="color:black" href="/logout" tabindex="-1" ><b> Выйти</b></a></li>
   </ul>
