@@ -1,6 +1,6 @@
 from django.contrib.auth.views import LoginView
 from django.urls import path
-from .views import MyLogoutView, MainView, CalculatorView, registration, ProfileDetailView, ProfileUpdateView
+from .views import MyLogoutView, MainView, CalculatorView, registration, ProfileDetailView, ProfileUpdateView,CalculationDetailView, CalculationListView
 from mainpage import views
 
 
