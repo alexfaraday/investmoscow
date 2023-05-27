@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.urls import reverse_lazy, reverse
 from django.views import View
-from django.views.generic import TemplateView, UpdateView, CreateView
+from django.views.generic import TemplateView, UpdateView, CreateView, DetailView, ListView
 from .models import Profile, Order_Varibles
 from .forms import ProfileForm,CalculatorForm,UserForm
 from django import forms
@@ -19,13 +19,21 @@ class MainView(TemplateView):
     template_name = "mainpage/main.html"
 
 
+class CalculationListView (ListView):
+    model=Order_Varibles
+    template_name = "mainpage/calculationlist.html"
+
+
 class CalculatorView(CreateView):
-    #model = Order_Varibles
-    #fields = '__all__'
     form_class = CalculatorForm
 
     template_name = "mainpage/calculator.html"
     success_url = '/'
+
+
+class CalculationDetailView(DetailView):
+    model = Order_Varibles
+    template_name = "mainpage/one_caluclation.html"
 
 
 def registration(request):
@@ -105,7 +113,7 @@ def update_profile(request):
             user_form.save()
             profile_form.save()
 
-            return redirect('/main/'+str(request.user.id))
+            return redirect('/profile')
         else:
             messages.error(request, _('Please correct the error below.'))
     else:
