@@ -42,7 +42,7 @@ class CalculatorView(CreateView):
         obj = CalculatorForm.save(commit=False)
         obj.User_create_order = self.request.user
 
-        make_excel(CalculatorForm.cleaned_data['industry_type'],CalculatorForm.cleaned_data['organisation_type'],CalculatorForm.cleaned_data['worker_amount'],CalculatorForm.cleaned_data['area_type'])
+        obj.excel_link =make_excel(CalculatorForm.cleaned_data['industry_type'],CalculatorForm.cleaned_data['organisation_type'],CalculatorForm.cleaned_data['worker_amount'],CalculatorForm.cleaned_data['area_type'])
         obj.save()
 
         newpage=Order_Varibles.objects.filter(User_create_order=self.request.user).last()
