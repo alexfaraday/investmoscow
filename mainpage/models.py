@@ -50,7 +50,7 @@ class Order_Varibles(models.Model): #калькулятор
     area_is_special_economic = models.BooleanField(default=False )
     business_type = models.ForeignKey(BusinessType, on_delete=models.CASCADE)
     area_yardage = models.IntegerField(max_length=99)
-    building_yardage = models.IntegerField(max_length=99)
+    #building_yardage = models.IntegerField(max_length=99)
     need_water = models.BooleanField(default=False )
     need_gas = models.BooleanField(default=False )
     need_electricity = models.BooleanField(default=False )
