@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Branch(models.Model):
-    name = models.CharField(max_length=100) #отрасль
+    name = models.TextField(max_length=100) #отрасль
 
     def __str__(self):
         return self.name
@@ -25,17 +25,17 @@ class Profile(models.Model):
 
 
 class BusinessType(models.Model): #Аренда/строительство
-    name = models.CharField(max_length=50)
+    name = models.TextField(max_length=50)
 
     def __str__(self):
         return self.name
 class company_type(models.Model): #Организационно правовая форма
-    type_name = models.CharField(max_length=100)
+    type_name = models.TextField(max_length=10)
     def __str__(self):
         return self.type_name
 
 class Moscow_zone(models.Model):
-    name = models.CharField(max_length=100)#районы Москвы
+    name = models.TextField(max_length=100)#районы Москвы
     def __str__(self):
         return self.name
 class Cadastra_val_Value(models.Model): #Средняя кадастровая стоимость
