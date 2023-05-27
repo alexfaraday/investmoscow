@@ -59,9 +59,9 @@ class CalculatorView(CreateView):
         obj.total_personal_max=salary_fss_pfr['Год']['Итого']
         accunting= accounting_func(4,CalculatorForm.cleaned_data['worker_amount'])
 
-        obj.total_AC6 =accunting
-        obj.total_AC15 =accunting
-        obj.total_AC_OSN =accunting
+        obj.total_AC6 =accunting[0]
+        obj.total_AC15 =accunting[0]
+        obj.total_AC_OSN =accunting[0]
 
         obj.excel_link =make_excel(CalculatorForm.cleaned_data['industry_type'],CalculatorForm.cleaned_data['organisation_type'],CalculatorForm.cleaned_data['worker_amount'],CalculatorForm.cleaned_data['area_type'], salary_fss_pfr)
 
