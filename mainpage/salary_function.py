@@ -43,21 +43,21 @@ def wages(industry_type_id, num_employees):
     vnim = round((fot + ndfl) * 0.029, 3)
     fees = ops + oms + vnim
     res_wage_dict = {'Год':
-                             {'Зарплата': round(fot * 12, 3),
-                              'НДФЛ': round(ndfl * 12, 3),
-                              'ОПС': round(ops * 12, 3),
-                              'ОМС': round(oms * 12, 3),
-                              'ВНиМ': round(vnim * 12, 3),
-                              'Страховые взносы': round(fees * 12, 3),
-                              'Итого': round(fot * 12, 3) + round(ndfl * 12, 3) + round(fees * 12, 3)},
+                             {'Зарплата': round(fot * 12, 0),
+                              'НДФЛ': round(ndfl * 12, 0),
+                              'ОПС': round(ops * 12, 0),
+                              'ОМС': round(oms * 12, 0),
+                              'ВНиМ': round(vnim * 12, 0),
+                              'Страховые взносы': round(fees * 12, 0),
+                              'Итого': round(fot * 12, 0) + round(ndfl * 12, 0) + round(fees * 12, 0)},
                          '6 месяцев':
-                             {'Зарплата': round(fot * 6, 3),
-                              'НДФЛ': round(ndfl * 6, 3),
-                              'ОПС': round(ops * 6, 3),
-                              'ОМС': round(oms * 6, 3),
-                              'ВНиМ': round(vnim * 6, 3),
-                              'Страховые взносы': round(fees * 6, 3),
-                              'Итого': round(fot * 6, 3) + round(ndfl * 6, 3) + round(fees * 6, 3)}
+                             {'Зарплата': round(fot * 6, 0),
+                              'НДФЛ': round(ndfl * 6, 0),
+                              'ОПС': round(ops * 6, 0),
+                              'ОМС': round(oms * 6, 0),
+                              'ВНиМ': round(vnim * 6, 0),
+                              'Страховые взносы': round(fees * 6, 0),
+                              'Итого': round(fot * 6, 0) + round(ndfl * 6, 0) + round(fees * 6, 0)}
                          }
     return res_wage_dict
 
