@@ -7,7 +7,7 @@ from django.urls import reverse_lazy, reverse
 from django.views import View
 from django.views.generic import TemplateView, UpdateView, CreateView
 from .models import Profile, Order_Varibles
-from .forms import ProfileForm,CalculatorForm
+from .forms import ProfileForm,CalculatorForm,UserForm
 from django import forms
 
 
@@ -94,3 +94,27 @@ class ProfileUpdateView(UpdateView):
 
     #def get_success_url(self):
      #   return reverse('mainpage:profile', kwargs={'pk': self.object.id})
+
+
+
+def update_profile(request):
+    if request.method == 'POST':
+        user_form = UserForm(request.POST, instance=request.user)
+        profile_form = ProfileForm(request.POST, instance=request.user.profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+
+            return redirect('/')
+        else:
+            messages.error(request, _('Please correct the error below.'))
+    else:
+        user_form = UserForm(instance=request.user)
+        profile_form = ProfileForm(instance=request.user.profile)
+    useratr = Profile.objects.all().filter(user=request.user)
+    return render(request, 'mainpage/profile_form.html', {
+        'user_form': user_form,
+        'profile_form': profile_form,
+        'imgProfileForm': imgProfileForm,
+        "useratr": useratr
+    })

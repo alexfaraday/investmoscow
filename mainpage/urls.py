@@ -7,7 +7,8 @@ app_name = "mainpage"
 urlpatterns = [
     path('', registration, name="register"),
     path('main/calculator/', CalculatorView.as_view(), name="calculator"),
-    path('main/<int:pk>/update/', ProfileUpdateView.as_view(), name="profile_update"),
+    #path('main/<int:pk>/update/', ProfileUpdateView.as_view(), name="profile_update"),
+    path('main/<int:pk>/update/', views.update_profile),
     path('main/<int:pk>/', ProfileDetailView.as_view(), name="profile"),
 
     path('logout/', MyLogoutView.as_view(), name="logout"),
