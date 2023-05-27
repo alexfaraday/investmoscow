@@ -38,6 +38,11 @@ class CalculatorView(CreateView):
     template_name = "mainpage/calculator.html"
     success_url = '/'
 
+    def form_valid(self, CalculatorForm):
+        obj = CalculatorForm.save(commit=False)
+        obj.User_create_order = self.request.user
+        obj.save()
+
 
 class CalculationDetailView(DetailView):
     model = Order_Varibles
