@@ -82,20 +82,20 @@ class StateDuty(models.Model): #Госпошлина
     name = models.CharField(max_length=1000)
     cost = models.IntegerField(max_length=1000)
 
-class Industry_data(models.Model): #Обезличенные данные
-    main_branch = models.CharField(max_length=100)
-    sub_branch = models.CharField(max_length=100)
-    average_number_staff = models.IntegerField(max_length=100)
-    average_salary = models.IntegerField(max_length=100)
-    taxes_to_budget = models.IntegerField(max_length=100)
-    income_tax = models.IntegerField(max_length=100)
-    property_tax = models.IntegerField(max_length=100)
-    land_tax = models.IntegerField(max_length=1000)
-    ndfl = models.IntegerField(max_length=100)
-    transport_tax = models.IntegerField(max_length=100)
-    other_taxes = models.IntegerField(max_length=100)
+# class Industry_data(models.Model): #Обезличенные данные
+#     main_branch = models.CharField(max_length=100)
+#     sub_branch = models.CharField(max_length=100)
+#     average_number_staff = models.IntegerField(max_length=100)
+#     average_salary = models.IntegerField(max_length=100)
+#     taxes_to_budget = models.IntegerField(max_length=100)
+#     income_tax = models.IntegerField(max_length=100)
+#     property_tax = models.IntegerField(max_length=100)
+#     land_tax = models.IntegerField(max_length=1000)
+#     ndfl = models.IntegerField(max_length=100)
+#     transport_tax = models.IntegerField(max_length=100)
+#     other_taxes = models.IntegerField(max_length=100)
 
-# class Machines(models.Model): #Станки средняя цена
-#     equipment_type = models.CharField(max_length=1000)
-#     average_cost_dol = models.FloatField(max_length=100)
-#     avegare_price_rub = models.FloatField(max_length=100)
+class Machines(models.Model): #Станки средняя цена
+    equipment_type = models.CharField(max_length=1000)
+    average_cost_dol = models.FloatField(max_length=100)
+    avegare_price_rub = models.FloatField(max_length=100)
