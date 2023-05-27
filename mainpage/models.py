@@ -40,17 +40,17 @@ class Moscow_zone(models.Model):
         return self.name
 class Cadastra_val_Value(models.Model): #Средняя кадастровая стоимость
     district = models.ForeignKey(Moscow_zone, on_delete=models.CASCADE) #район Москвы
-    cost = models.IntegerField(max_length=10000)
+    cost = models.IntegerField(max_length=100)
 
 class Order_Varibles(models.Model): #калькулятор
     industry_type = models.ForeignKey(Branch, on_delete=models.CASCADE) #отрасль
     organisation_type = models.ForeignKey(company_type, on_delete=models.CASCADE) #ООПФ
-    worker_amount = models.IntegerField(max_length=99999)# количество сотрудников
+    worker_amount = models.IntegerField(max_length=99)# количество сотрудников
     area_type = models.ForeignKey(Moscow_zone, on_delete=models.CASCADE)  #район расположения
     area_is_special_economic = models.BooleanField(default=False )
     business_type = models.ForeignKey(BusinessType, on_delete=models.CASCADE)
-    area_yardage = models.IntegerField(max_length=999999)
-    building_yardage = models.IntegerField(max_length=999999)
+    area_yardage = models.IntegerField(max_length=99)
+    building_yardage = models.IntegerField(max_length=99)
     need_water = models.BooleanField(default=False )
     need_gas = models.BooleanField(default=False )
     need_electricity = models.BooleanField(default=False )
@@ -60,8 +60,8 @@ class Order_Varibles(models.Model): #калькулятор
 
 class order_instruments(models.Model): #Станок
     instrument_name = models.CharField(max_length=100)
-    instrument_amount = models.IntegerField(max_length=999999)
-    instrument_price = models.IntegerField(max_length=999999)
+    instrument_amount = models.IntegerField(max_length=99)
+    instrument_price = models.IntegerField(max_length=99)
     order = models.ForeignKey(Order_Varibles, on_delete=models.CASCADE)
 
 class CostCapitalConstraction(models.Model): #Стоимость капитального строительства
