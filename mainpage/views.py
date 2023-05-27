@@ -10,6 +10,7 @@ from .models import Profile, Order_Varibles
 from .forms import ProfileForm,CalculatorForm,UserForm
 from django import forms
 from .pdf_maker import *
+from .salary_function import *
 
 class MyLogoutView(LogoutView):
     next_page = reverse_lazy('mainpage:login')
@@ -41,8 +42,25 @@ class CalculatorView(CreateView):
     def form_valid(self, CalculatorForm):
         obj = CalculatorForm.save(commit=False)
         obj.User_create_order = self.request.user
+        salary_fss_pfr=wages(CalculatorForm.cleaned_data['industry_type'], CalculatorForm.cleaned_data['worker_amount'])
+        obj.pfr_min=salary_fss_pfr['6 месяцев']['ОПС']
+        obj.oms_min=salary_fss_pfr['6 месяцев']['ОМС']
+        obj.pfr_max=salary_fss_pfr['Год']['ОПС']
+        obj.oms_max=salary_fss_pfr['Год']['ОПС']
+        obj.vnim_min=salary_fss_pfr['6 месяцев']['ВНиМ']
+        obj.vnim_max=salary_fss_pfr['Год']['ВНиМ']
+        obj.ndfl_min=salary_fss_pfr['6 месяцев']['НДФЛ']
+        obj.ndfl_max=salary_fss_pfr['Год']['НДФЛ']
+        obj.salary_min=salary_fss_pfr['6 месяцев']['Зарплата']
+        obj.salary_max=salary_fss_pfr['Год']['Зарплата']
+        obj.total_personal_min=salary_fss_pfr['6 месяцев']['Итого']
+        obj.total_personal_max=salary_fss_pfr['Год']['Итого']
 
-        obj.excel_link =make_excel(CalculatorForm.cleaned_data['industry_type'],CalculatorForm.cleaned_data['organisation_type'],CalculatorForm.cleaned_data['worker_amount'],CalculatorForm.cleaned_data['area_type'])
+        obj.excel_link =make_excel(CalculatorForm.cleaned_data['industry_type'],CalculatorForm.cleaned_data['organisation_type'],CalculatorForm.cleaned_data['worker_amount'],CalculatorForm.cleaned_data['area_type'], salary_fss_pfr)
+
+
+
+
         obj.save()
 
         newpage=Order_Varibles.objects.filter(User_create_order=self.request.user).last()
