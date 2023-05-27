@@ -27,7 +27,7 @@ class ProfileForm(ModelForm):
 class CalculatorForm(forms.ModelForm):
     class Meta:
         model = Order_Varibles
-        fields = ['industry_type', 'organisation_type', 'worker_amount','area_type','area_is_special_economic','business_type','area_yardage','building_yardage','need_water',
+        fields = ['industry_type', 'organisation_type', 'worker_amount','area_type','area_is_special_economic','business_type','area_yardage','need_water',
                   'need_gas','need_electricity', 'is_patent_use']
         labels = {'industry_type':'Отрасль ведения хозяйственной деятельности',
                   'organisation_type':'Организационно-правовая форма',
@@ -35,7 +35,7 @@ class CalculatorForm(forms.ModelForm):
         'area_type':'Территория расположения производства',
         'area_is_special_economic':'Размещение в особой экономической зоне',
         'business_type':'Тип реализации проекта',
-        'area_yardage':'Площадь производства',
+        'area_yardage':'Площадь производства, в квадратных метрах',
         'building_yardage':'Площадь здания',
         'need_water':'Необходимо подключение к водопроводу',
                   'need_gas':'Необходимо подключение к газу',
