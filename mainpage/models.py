@@ -59,7 +59,7 @@ class Order_Varibles(models.Model): #калькулятор
 
 
 class order_instruments(models.Model): #Станок
-    instrument_name = models.CharField(max_length=100)
+    instrument_name = models.TextField(max_length=100)
     instrument_amount = models.IntegerField(max_length=99)
     instrument_price = models.IntegerField(max_length=99)
     order = models.ForeignKey(Order_Varibles, on_delete=models.CASCADE)
@@ -70,7 +70,7 @@ class CostCapitalConstraction(models.Model): #Стоимость капитал�
 
 
 class Accounting(models.Model): #Бухгалтерский учет
-    name = models.CharField(max_length=100)
+    name = models.TextField(max_length=100)
     min_osn = models.IntegerField(max_length=100)
     max_osn = models.IntegerField(max_length=100)
     min_usn = models.IntegerField(max_length=100)
@@ -79,7 +79,7 @@ class Accounting(models.Model): #Бухгалтерский учет
     max_patent = models.IntegerField(max_length=100)
 
 class StateDuty(models.Model): #Госпошлина
-    name = models.CharField(max_length=100)
+    name = models.TextField(max_length=100)
     cost = models.IntegerField(max_length=100)
 
 # class Industry_data(models.Model): #Обезличенные данные
