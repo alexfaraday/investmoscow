@@ -10,7 +10,7 @@ urlpatterns = [
     path('calculator/', CalculatorView.as_view(), name="calculator"),
     #path('main/<int:pk>/update/', ProfileUpdateView.as_view(), name="profile_update"),
     path('editprofile/', views.update_profile),
-    path('calculation/<int:pk>/', CalculationDetailView.as_view(), name="profile"),
+    path('calculation/<int:pk>/', CalculationDetailView.as_view(), ),
     path('calculation_list/', CalculationListView.as_view(), name="profile"),
     path('profile/', ProfileDetailView.as_view(), name="profile"),
 
