@@ -10,8 +10,8 @@ def wages(industry_type_id, num_employees):
     а "Зарплата", "НДФЛ" и "Страховые взносы" являются отдельными строками в детализации расходов на персонал.
     '''
 
-    try:
-        dict_wages = {3: 90.812,
+
+    dict_wages = {3: 90.812,
                       4: 67.905,
                       25: 84.686,
                       15: 40.133,
@@ -36,13 +36,13 @@ def wages(industry_type_id, num_employees):
                       12: 73.604,
                       11: 101.981,
                       8: 64.009}
-        fot = round(dict_wages[manufacturing_id] * num_employees, 3)
-        ndfl = round(fot * 0.13, 3)
-        ops = round((fot + ndfl) * 0.22, 3)
-        oms = round((fot + ndfl) * 0.051, 3)
-        vnim = round((fot + ndfl) * 0.029, 3)
-        fees = ops + oms + vnim
-        res_wage_dict = {'Год':
+    fot = round(dict_wages[manufacturing_id] * num_employees, 3)
+    ndfl = round(fot * 0.13, 3)
+    ops = round((fot + ndfl) * 0.22, 3)
+    oms = round((fot + ndfl) * 0.051, 3)
+    vnim = round((fot + ndfl) * 0.029, 3)
+    fees = ops + oms + vnim
+    res_wage_dict = {'Год':
                              {'Зарплата': round(fot * 12, 3),
                               'НДФЛ': round(ndfl * 12, 3),
                               'ОПС': round(ops * 12, 3),
@@ -59,6 +59,6 @@ def wages(industry_type_id, num_employees):
                               'Страховые взносы': round(fees * 6, 3),
                               'Итого': fot + ndfl + fees}
                          }
-        return res_wage_dict
-    except:
-        print('Введены некорректные данные')
+    return res_wage_dict
+
+
