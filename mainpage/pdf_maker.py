@@ -23,33 +23,33 @@ def image_3(path='/home/c/cp31594/django_gsvno/public_html/media/img/3.jpg'): #�
     draw_text = ImageDraw.Draw(im)
 
     branch = "Авиационная промышленность"
-    draw_text.text((1200, 560), branch, fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
+    draw_text.text((1200, 560), branch, fill=('#1C0606'), stroke_width=1, stroke_fill="black")
 
     org_type = "ИП"
-    draw_text.text((1600, 770), org_type, fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
+    draw_text.text((1600, 770), org_type, fill=('#1C0606'),  stroke_width=1, stroke_fill="black")
 
     employees_count = "{} человек".format(20)
-    draw_text.text((1500, 1120), employees_count, fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
+    draw_text.text((1500, 1120), employees_count, fill=('#1C0606'), stroke_width=1, stroke_fill="black")
 
     district = "ЦАО"
-    draw_text.text((1580, 1380), district, fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
+    draw_text.text((1580, 1380), district, fill=('#1C0606'),  stroke_width=1, stroke_fill="black")
 
     min_total_expenses = 100
     max_total_expenses = 300
     draw_text.text((1300, 1800), "От {} до {} млн.руб.".format(min_total_expenses, max_total_expenses),
-                   fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
+                   fill=('#1C0606'),  stroke_width=1, stroke_fill="black")
 
     employees_expenses = "{} млн.руб.".format(20)
-    draw_text.text((1500, 2190), employees_expenses, fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
+    draw_text.text((1500, 2190), employees_expenses, fill=('#1C0606'),  stroke_width=1, stroke_fill="black")
 
     rent_expenses = "{} млн.руб.".format(140)
-    draw_text.text((1500, 2410), rent_expenses, fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
+    draw_text.text((1500, 2410), rent_expenses, fill=('#1C0606'),  stroke_width=1, stroke_fill="black")
 
     taxes_expenses = "{} млн.руб.".format(20)
-    draw_text.text((1500, 2610), taxes_expenses, fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
+    draw_text.text((1500, 2610), taxes_expenses, fill=('#1C0606'), stroke_width=1, stroke_fill="black")
 
     services_expenses = "{} млн.руб.".format(20)
-    draw_text.text((1500, 2800), services_expenses, fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
+    draw_text.text((1500, 2800), services_expenses, fill=('#1C0606'),  stroke_width=1, stroke_fill="black")
     pdf_name='/home/c/cp31594/django_gsvno/public_html/media/img/'+'3_1.jpg'
 
     im.save(pdf_name)
