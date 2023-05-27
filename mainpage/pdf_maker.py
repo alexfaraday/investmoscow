@@ -94,12 +94,12 @@ import string
 #     pdf.output("mainpage/application/pdf/result.pdf")
 #
 
-def make_excel(branch,org_type,personal, district ): #Скачать excel
+def make_excel(branch,org_type,personal, district, salary_fss_pfr ): #Скачать excel
 
     #Первый лист
     branch = branch
     org_type = org_type
-    employees_count =str(personal)+"{} человек".format(20)
+    employees_count =str(personal)+"{} человек"
     district = district
     organization_info = pd.DataFrame({'Наименование': ['Отрасль', 'Тип организации', 'Количество сотрудников',
                                                        'Район расположения производства'],
@@ -119,13 +119,13 @@ def make_excel(branch,org_type,personal, district ): #Скачать excel
                          "От {} до {} млн.руб.".format(min_total_expenses, max_total_expenses)]})
 
     #Третий лист
-    min_totals = 100
-    max_totals = 300
-    employees_count = 20
-    min_pensionary_expenses = 10
-    max_pensionary_expenses = 100
-    min_health_expenses = 10
-    max_health_expenses = 100
+    min_totals = salary_fss_pfr['6 месяцев']['Итого']
+    max_totals = salary_fss_pfr['Год']['Итого']
+    employees_count = personal
+    min_pensionary_expenses = salary_fss_pfr['6 месяцев']['ОПС']
+    max_pensionary_expenses = salary_fss_pfr['Год']['ОПС']
+    min_health_expenses = salary_fss_pfr['6 месяцев']['ОМС']
+    max_health_expenses = salary_fss_pfr['Год']['ОМС']
     organization_personal = pd.DataFrame(
         {'Наименование': ['Итого возможных расходов на содержание персонала организации',
                           'Планируемая численность персонала', 'Страховые взносы(пенсионное страхование)',
