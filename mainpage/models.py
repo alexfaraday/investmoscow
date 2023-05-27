@@ -55,7 +55,7 @@ class Order_Varibles(models.Model): #калькулятор
     need_gas = models.BooleanField(default=False )
     need_electricity = models.BooleanField(default=False )
     is_patent_use = models.BooleanField(default=False )
-    User_create_order = models.OneToOneField(User, default=None, null=True, on_delete=models.CASCADE)
+    #User_create_order = models.OneToOneField(User, default=None, null=True, on_delete=models.CASCADE)
     order_create_date = models.DateTimeField(auto_now_add=True)
 
 
