@@ -16,13 +16,25 @@
 <br>
                                     <h1 class="text-center">Все рассчеты</h1>
   {% for item in object_list %}
-                <div class="row">
+         <thead>
+    <tr>
+      <th scope="col">Номер расчета</th>
+      <th scope="col">Дата</th>
+      <th scope="col">Ссылка</th>
 
-                    <p>{{ item.order_create_date }}</p>
-              <p>{{ item.User_create_order  }}</p>
-               <a href="/"></a> <p>{{ item.id }}</p>
 
-                </div>
+    </tr>
+  </thead>
+ <tr>
+          <td></td>
+      <td>{{ item.id }}</td>
+      <td>{{ item.order_create_date }}</td>
+     <td><a href="/calculation/{{ item.id }}"><button class="btn btn-success">Подробности</button> </a></td>
+    </tr>
+
+
+
+
 
                     {% endfor %}
 <br>
