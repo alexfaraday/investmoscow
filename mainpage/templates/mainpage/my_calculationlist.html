@@ -16,9 +16,13 @@
 <br>
                                     <h1 class="text-center">Все рассчеты</h1>
   {% for item in object_list %}
-                <div class="row"></div>    <p>{{ item.name }}</p></div>
-                <div class="row"></div>    <p>{{ item.User_create_order  }}</p></div>
-                <div class="row"></div>    <p>{{ item.id }}</p></div>
+                <div class="row">
+
+                    <p>{{ item.order_create_date }}</p>
+              <p>{{ item.User_create_order  }}</p>
+               <a href="/"></a> <p>{{ item.id }}</p>
+
+                </div>
 
                     {% endfor %}
 <br>
