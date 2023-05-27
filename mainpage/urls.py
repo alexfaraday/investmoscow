@@ -1,6 +1,7 @@
 from django.contrib.auth.views import LoginView
 from django.urls import path
 from .views import MyLogoutView, MainView, CalculatorView, registration, ProfileDetailView, ProfileUpdateView
+from mainpage import views
 
 
 app_name = "mainpage"
