@@ -25,7 +25,7 @@ class Profile(models.Model):
 
 
 class BusinessType(models.Model): #Аренда/строительство
-    name = models.CharField(max_length=400)
+    name = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name
