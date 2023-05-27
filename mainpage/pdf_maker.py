@@ -3,6 +3,7 @@ from PIL import Image, ImageDraw, ImageFont
 import pandas as pd
 import random
 import string
+import os
 
 #
 # def downlaod_pdf(request: HttpRequest): #Скачать pdf
@@ -19,7 +20,7 @@ import string
 #
 def image_3(path='/home/c/cp31594/django_gsvno/public_html/media/img/3.jpg'): #Здесь данные для 3 страницы
     im = Image.open(path)
-    font = ImageFont.truetype("/home/c/cp31594/django_gsvno/public_html/media/font/Roboto-Regular.ttf", 64, encoding='UTF-8')
+    font = ImageFont.truetype("/home/c/cp31594/django_gsvno/public_html/media/fonts/Roboto-Regular.ttf", 64, encoding='UTF-8')
     draw_text = ImageDraw.Draw(im)
 
     branch = "Авиационная промышленность"
@@ -58,7 +59,7 @@ def image_3(path='/home/c/cp31594/django_gsvno/public_html/media/img/3.jpg'): #�
 
 def image_4(path='/home/c/cp31594/django_gsvno/public_html/media/img/4.jpg'): #Здесь данные для 4 страницы
     im = Image.open(path)
-    font = ImageFont.truetype("/home/c/cp31594/django_gsvno/public_html/media/font/Roboto-Regular.ttf", 64, encoding='UTF-8')
+    font = ImageFont.truetype("/home/c/cp31594/django_gsvno/public_html/media/fonts/Roboto-Regular.ttf", 64, encoding='UTF-8')
     draw_text = ImageDraw.Draw(im)
 
     min_totals = 100
