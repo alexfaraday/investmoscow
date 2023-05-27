@@ -43,7 +43,7 @@ class CalculatorView(CreateView):
         obj = CalculatorForm.save(commit=False)
         obj.User_create_order = self.request.user
        # salary_fss_pfr=wages(CalculatorForm.cleaned_data['industry_type'], CalculatorForm.cleaned_data['worker_amount'])
-        salary_fss_pfr=wages(3, 3)
+        salary_fss_pfr=wages(4, CalculatorForm.cleaned_data['worker_amount'])
         obj.pfr_min=salary_fss_pfr['6 месяцев']['ОПС']
         obj.oms_min=salary_fss_pfr['6 месяцев']['ОМС']
         obj.pfr_max=salary_fss_pfr['Год']['ОПС']

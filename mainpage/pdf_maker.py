@@ -99,7 +99,7 @@ def make_excel(branch,org_type,personal, district, salary_fss_pfr ): #Скача
     #Первый лист
     branch = branch
     org_type = org_type
-    employees_count =str(personal)+"{} человек"
+    employees_count =str(personal)+" человек"
     district = district
     organization_info = pd.DataFrame({'Наименование': ['Отрасль', 'Тип организации', 'Количество сотрудников',
                                                        'Район расположения производства'],
@@ -109,9 +109,9 @@ def make_excel(branch,org_type,personal, district, salary_fss_pfr ): #Скача
     min_total_expenses = 100
     max_total_expenses = 300
     employees_expenses = "{} млн.руб.".format(20)
-    rent_expenses = "{} млн.руб.".format(140)
-    taxes_expenses = "{} млн.руб.".format(20)
-    services_expenses = "{} млн.руб.".format(20)
+    rent_expenses = "{} руб.".format(140)
+    taxes_expenses = "{} руб.".format(20)
+    services_expenses = "{} руб.".format(20)
     possible_costs = pd.DataFrame(
         {'Наименование': ['Персонал', 'Аренда объектов недвижимости',
                           'Налоги', 'Услуги', 'Итого возможных расходов'],
@@ -130,9 +130,9 @@ def make_excel(branch,org_type,personal, district, salary_fss_pfr ): #Скача
         {'Наименование': ['Итого возможных расходов на содержание персонала организации',
                           'Планируемая численность персонала', 'Страховые взносы(пенсионное страхование)',
                           'Страховые взносы(медицинское страхование)'],
-        'Значение': ["От {} до {} млн.руб.".format(min_totals, max_totals), "{} человек ".format(employees_count),
-                     "От {} до {} млн.руб.".format(min_pensionary_expenses, max_pensionary_expenses),
-                     "От {} до {} млн.руб.".format(min_health_expenses, max_health_expenses)]})
+        'Значение': ["От {} до {} руб.".format(min_totals, max_totals), "{} человек ".format(employees_count),
+                     "От {} до {} руб.".format(min_pensionary_expenses, max_pensionary_expenses),
+                     "От {} до {} руб.".format(min_health_expenses, max_health_expenses)]})
     letters = string.ascii_lowercase
     file_name=''.join(random.choice(letters) for i in range(10))
 
