@@ -42,7 +42,9 @@ class CalculatorView(CreateView):
         obj = CalculatorForm.save(commit=False)
         obj.User_create_order = self.request.user
         obj.save()
-        return redirect("/")
+        newpage=Order_Varibles.objects.filter(User_create_order=self.request.user).last()
+
+        return redirect("/calculation/"+newpage.id)
 
 
 
