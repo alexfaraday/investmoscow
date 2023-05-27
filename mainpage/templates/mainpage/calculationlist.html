@@ -14,10 +14,10 @@
             <div class="card shadow">
                 <div class="container"><br>
 <br>
-                                    <h1 class="text-center">Рассчеты профиль</h1>
-
-
-{{ object_list }}
+                                    <h1 class="text-center">Все рассчеты</h1>
+  {% for item in object_list %}
+                    {{ item }}
+                    {% endfor %}
 <br>
 <br><br>
 <br>
