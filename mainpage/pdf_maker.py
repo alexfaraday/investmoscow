@@ -80,10 +80,11 @@ def image_4(path='/home/c/cp31594/django_gsvno/public_html/media/img/4.jpg'): #�
     max_health_expenses = 100
     draw_text.text((1400, 2700), "От {} до {} млн.руб. ".format(min_health_expenses, max_health_expenses),
                    fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
-    pdf_name = '/home/c/cp31594/django_gsvno/public_html/media/img/' + '4_1.jpg'
+    pdf_name ='/home/c/cp31594/django_gsvno/public_html/media/img/'+'4_1.jpg'
 
 
     im.save(pdf_name)
+    return pdf_name
 
 
 def make_pdf(page3,page4): #Создание pdf
