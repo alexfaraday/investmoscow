@@ -95,7 +95,7 @@ class Industry_data(models.Model): #Обезличенные данные
     transport_tax = models.IntegerField(max_length=100)
     other_taxes = models.IntegerField(max_length=100)
 
-class Machines(models.Model): #Станки средняя цена
-    equipment_type = models.CharField(max_length=1000)
-    average_cost_dol = models.FloatField(max_length=100)
-    avegare_price_rub = models.FloatField(max_length=100)
+# class Machines(models.Model): #Станки средняя цена
+#     equipment_type = models.CharField(max_length=1000)
+#     average_cost_dol = models.FloatField(max_length=100)
+#     avegare_price_rub = models.FloatField(max_length=100)
