@@ -79,8 +79,8 @@ class Accounting(models.Model): #Бухгалтерский учет
     max_patent = models.IntegerField(max_length=10000)
 
 class StateDuty(models.Model): #Госпошлина
-    name = models.CharField(max_length=1000)
-    cost = models.IntegerField(max_length=1000)
+    name = models.CharField(max_length=100)
+    cost = models.IntegerField(max_length=100)
 
 # class Industry_data(models.Model): #Обезличенные данные
 #     main_branch = models.CharField(max_length=100)
@@ -96,6 +96,6 @@ class StateDuty(models.Model): #Госпошлина
 #     other_taxes = models.IntegerField(max_length=100)
 
 class Machines(models.Model): #Станки средняя цена
-    equipment_type = models.CharField(max_length=1000)
+    equipment_type = models.CharField(max_length=100)
     average_cost_dol = models.FloatField(max_length=100)
     avegare_price_rub = models.FloatField(max_length=100)
