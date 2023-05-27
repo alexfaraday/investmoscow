@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+import os
+os.environ['OPENBLAS_NUM_THREADS'] = '1'
 
 
 class Branch(models.Model):
