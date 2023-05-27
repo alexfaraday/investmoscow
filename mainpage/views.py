@@ -9,7 +9,7 @@ from django.views.generic import TemplateView, UpdateView, CreateView, DetailVie
 from .models import Profile, Order_Varibles
 from .forms import ProfileForm,CalculatorForm,UserForm
 from django import forms
-import pdf_maker
+from .pdf_maker import *
 
 class MyLogoutView(LogoutView):
     next_page = reverse_lazy('mainpage:login')
@@ -42,7 +42,7 @@ class CalculatorView(CreateView):
         obj = CalculatorForm.save(commit=False)
         obj.User_create_order = self.request.user
         obj.save()
-        pdf_maker.make_excel()
+        make_excel()
         newpage=Order_Varibles.objects.filter(User_create_order=self.request.user).last()
 
         return redirect("/calculation/"+str(newpage.id))
