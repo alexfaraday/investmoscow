@@ -36,7 +36,7 @@ def wages(industry_type_id, num_employees):
                       12: 73.604,
                       11: 101.981,
                       8: 64.009}
-    fot = round(dict_wages[manufacturing_id] * num_employees, 3)
+    fot = round(dict_wages[industry_type_id] * num_employees, 3)
     ndfl = round(fot * 0.13, 3)
     ops = round((fot + ndfl) * 0.22, 3)
     oms = round((fot + ndfl) * 0.051, 3)
