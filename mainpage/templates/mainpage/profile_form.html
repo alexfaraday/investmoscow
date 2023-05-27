@@ -14,13 +14,13 @@
             <div class="card shadow">
                 <div class="container"><br>
 <br>
-                                    <h1>Профиль</h1>
+                                    <h1 class="text-center">Профиль</h1>
 
 
     <form method="post">
         {% csrf_token %}
           {{ form|crispy }}
-        <button class='btn' style="background-color: #cc2222" type="submit" >Редактировать</button>
+        <button class='btn text-white font-weight-bold' style="background-color: #cc2222" type="submit" >Редактировать</button>
     </form>
 <br>
 <br><br>

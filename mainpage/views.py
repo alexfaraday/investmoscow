@@ -75,7 +75,16 @@ class ProfileUpdateView(UpdateView):
     model = Profile
     form_class = ProfileForm
     success_url = '/'
+    pk_url_kwarg = "oid"
 
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            userid = Profile.objects.get(id=self.kwargs["oid"])
+            if request.user.id != userid.userid:
+                return HttpResponseRedirect("/")
+            return super().get(request, *args, **kwargs)
+        else:
+            return redirect("/")
 
     def form_valid(self, form: forms.Form):
         if form.is_valid():
