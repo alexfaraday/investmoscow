@@ -66,6 +66,7 @@ class CalculatorView(CreateView):
             obj.total_AC6 = accunting['ИП (ОСН)']
             obj.total_AC15 = accunting['ИП (УСН 15%, ЕСХН)']
             obj.total_AC_OSN = accunting['ИП (УСН 6%)']
+        obj.pdf_link=make_invest_pdf()
 
         obj.excel_link =make_excel(CalculatorForm.cleaned_data['industry_type'],CalculatorForm.cleaned_data['organisation_type'],CalculatorForm.cleaned_data['worker_amount'],CalculatorForm.cleaned_data['area_type'], salary_fss_pfr)
 
