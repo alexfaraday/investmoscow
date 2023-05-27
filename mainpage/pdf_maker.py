@@ -92,13 +92,13 @@ import pandas as pd
 #     pdf.output("mainpage/application/pdf/result.pdf")
 #
 
-def make_excel(branch2): #Скачать excel
-    branch=branch2
+def make_excel(branch,org_type,personal, district ): #Скачать excel
+
     #Первый лист
-    branch = "Авиационная промышленность"
-    org_type = "ИП"
-    employees_count = "{} человек".format(20)
-    district = "ЦАО"
+    branch = branch
+    org_type = org_type
+    employees_count =str(personal)+"{} человек".format(20)
+    district = district
     organization_info = pd.DataFrame({'Наименование': ['Отрасль', 'Тип организации', 'Количество сотрудников',
                                                        'Район расположения производства'],
                                       'Значение': [branch, org_type, employees_count, district]})

@@ -71,6 +71,9 @@ class Order_Varibles(models.Model): #калькулятор
     nalog_na_zemlya=models.IntegerField(max_length=99,blank=True, null=True)
     all_nalog=models.IntegerField(max_length=99,blank=True, null=True)
     all_personal=models.IntegerField(max_length=99,blank=True, null=True)
+    all_personal=models.IntegerField(max_length=99,blank=True, null=True)
+    excel_link=models.CharField(max_length=99,blank=True, null=True)
+    pdf_link=models.CharField(max_length=99,blank=True, null=True)
 
 
 

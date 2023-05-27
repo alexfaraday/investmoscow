@@ -41,8 +41,10 @@ class CalculatorView(CreateView):
     def form_valid(self, CalculatorForm):
         obj = CalculatorForm.save(commit=False)
         obj.User_create_order = self.request.user
+        CalculatorForm.cleaned_data['name']
+        make_excel(CalculatorForm.cleaned_data['industry_type'],CalculatorForm.cleaned_data['organisation_type'],CalculatorForm.cleaned_data['worker_amount'],CalculatorForm.cleaned_data['area_type'])
         obj.save()
-        make_excel()
+
         newpage=Order_Varibles.objects.filter(User_create_order=self.request.user).last()
 
         return redirect("/calculation/"+str(newpage.id))
