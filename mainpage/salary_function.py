@@ -1,5 +1,5 @@
 # ЗП
-def wages(industry_type_id: int, num_employees: int) -> dict:
+def wages(industry_type_id, num_employees):
     '''
     Функция расчета расходов на персонал.
     На вход принимается отрасль и количество сотрудников. Эти данные вводит пользователь.
