@@ -7,10 +7,11 @@ from mainpage import views
 app_name = "mainpage"
 urlpatterns = [
     path('', registration, name="register"),
-    path('main/calculator/', CalculatorView.as_view(), name="calculator"),
+    path('calculator/', CalculatorView.as_view(), name="calculator"),
     #path('main/<int:pk>/update/', ProfileUpdateView.as_view(), name="profile_update"),
     path('editprofile/', views.update_profile),
-    path('main/<int:pk>/', ProfileDetailView.as_view(), name="profile"),
+   # path('main/<int:pk>/', ProfileDetailView.as_view(), name="profile"),
+    path('profile/', ProfileDetailView.as_view(), name="profile"),
 
     path('logout/', MyLogoutView.as_view(), name="logout"),
     path("login/",
