@@ -1,7 +1,8 @@
 from fpdf import FPDF
 from PIL import Image, ImageDraw, ImageFont
 import pandas as pd
-import uuid
+import random
+import string
 
 #
 # def downlaod_pdf(request: HttpRequest): #Скачать pdf
@@ -132,7 +133,8 @@ def make_excel(branch,org_type,personal, district ): #Скачать excel
         'Значение': ["От {} до {} млн.руб.".format(min_totals, max_totals), "{} человек ".format(employees_count),
                      "От {} до {} млн.руб.".format(min_pensionary_expenses, max_pensionary_expenses),
                      "От {} до {} млн.руб.".format(min_health_expenses, max_health_expenses)]})
-    file_name=uuid.uuid4()
+    letters = string.ascii_lowercase
+    file_name=''.join(random.choice(letters) for i in range(10))
 
     writer = pd.ExcelWriter('/home/c/cp31594/django_gsvno/public_html/media/'+file_name+'result.xlsx', engine='xlsxwriter')
 
