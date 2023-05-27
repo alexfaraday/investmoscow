@@ -47,13 +47,11 @@
     <tr>
           <td>Организационно-правовая форма </td>
 
-      <td> {{ object.organisation_type_id.name }}</td>
+      <td> {{ object.organisation_type_id.company_type.name}}</td>
 
     </tr>
     <tr>
           <td>Отрасль </td>
-      <td>{{ object.industry_type_id }}</td>
-      <td>{{ object.industry_type_id.name }}</td>
       <td>{{ object.industry_type_id }}</td>
     </tr>
     <tr>
