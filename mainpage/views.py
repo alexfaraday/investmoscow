@@ -105,7 +105,7 @@ def update_profile(request):
             user_form.save()
             profile_form.save()
 
-            return redirect('/')
+            return redirect('/main'+str(request.user.id))
         else:
             messages.error(request, _('Please correct the error below.'))
     else:
@@ -113,8 +113,8 @@ def update_profile(request):
         profile_form = ProfileForm(instance=request.user.profile)
     useratr = Profile.objects.all().filter(user=request.user)
     return render(request, 'mainpage/profile_form.html', {
-        'user_form': user_form,
+        #'user_form': user_form,
         'profile_form': profile_form,
-        'imgProfileForm': imgProfileForm,
+
         "useratr": useratr
     })
