@@ -11,6 +11,7 @@ from .forms import ProfileForm,CalculatorForm,UserForm
 from django import forms
 from .pdf_maker import *
 from .salary_function import *
+from .accounting import *
 
 class MyLogoutView(LogoutView):
     next_page = reverse_lazy('mainpage:login')
@@ -56,6 +57,11 @@ class CalculatorView(CreateView):
         obj.salary_max=salary_fss_pfr['Год']['Зарплата']
         obj.total_personal_min=salary_fss_pfr['6 месяцев']['Итого']
         obj.total_personal_max=salary_fss_pfr['Год']['Итого']
+        accunting= accounting_func(4,CalculatorForm.cleaned_data['worker_amount'])
+
+        obj.total_AC6 =accunting[0]
+        obj.total_AC15 =accunting[1]
+        obj.total_AC_OSN =accunting[2]
 
         obj.excel_link =make_excel(CalculatorForm.cleaned_data['industry_type'],CalculatorForm.cleaned_data['organisation_type'],CalculatorForm.cleaned_data['worker_amount'],CalculatorForm.cleaned_data['area_type'], salary_fss_pfr)
 
