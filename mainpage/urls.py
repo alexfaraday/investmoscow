@@ -11,7 +11,8 @@ urlpatterns = [
     #path('main/<int:pk>/update/', ProfileUpdateView.as_view(), name="profile_update"),
     path('editprofile/', views.update_profile),
     path('calculation/<int:pk>/', CalculationDetailView.as_view(), ),
-    path('calculation_list/', CalculationListView.as_view(), name="profile"),
+    path('calculation_list/', CalculationListView.as_view(), name="calculation"),
+    path('mycalculations/', My_Oreder_CalculationListView.as_view(), name="calculation"),
     path('profile/', ProfileDetailView.as_view(), name="profile"),
 
     path('logout/', MyLogoutView.as_view(), name="logout"),
