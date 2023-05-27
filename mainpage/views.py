@@ -63,7 +63,7 @@ def registration(request):
 
 
 class ProfileDetailView(View):
-    def get(self, request: HttpRequest, pk: int) -> HttpResponse:
+    def get(self, request: HttpRequest, ) -> HttpResponse:
         profile = Profile.objects.get(user=request.user)
         context = {
             "profile": profile
@@ -105,7 +105,7 @@ def update_profile(request):
             user_form.save()
             profile_form.save()
 
-            return redirect('/main'+str(request.user.id))
+            return redirect('/main/'+str(request.user.id))
         else:
             messages.error(request, _('Please correct the error below.'))
     else:
