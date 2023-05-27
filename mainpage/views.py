@@ -23,6 +23,14 @@ class CalculationListView (ListView):
     model=Order_Varibles
     template_name = "mainpage/calculationlist.html"
 
+class My_Oreder_CalculationListView (ListView):
+    model=Order_Varibles
+    template_name = "mainpage/calculationlist.html"
+
+    def get_queryset(self):
+        order = Order_Varibles.objects.filter(User_create_order=self.request.user)
+        return order
+
 
 class CalculatorView(CreateView):
     form_class = CalculatorForm

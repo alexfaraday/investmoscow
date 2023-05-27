@@ -44,6 +44,8 @@ class Cadastra_val_Value(models.Model): #Средняя кадастровая �
 
 class Order_Varibles(models.Model): #калькулятор
     industry_type = models.ForeignKey(Branch, on_delete=models.CASCADE) #отрасль
+    User_create_order = models.ForeignKey(User, on_delete=models.CASCADE) #пользователь создавший расчет
+    order_create_date = models.DateTimeField(auto_now_add=True)
     organisation_type = models.ForeignKey(company_type, on_delete=models.CASCADE) #ООПФ
     worker_amount = models.IntegerField(max_length=99)# количество сотрудников
     area_type = models.ForeignKey(Moscow_zone, on_delete=models.CASCADE)  #район расположения
