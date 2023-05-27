@@ -82,17 +82,17 @@ class StateDuty(models.Model): #Госпошлина
     name = models.CharField(max_length=1000)
     cost = models.IntegerField(max_length=1000)
 
-# class Industry_data(models.Model): #Обезличенные данные
-#     main_branch = models.CharField(max_length=10000)
-#     sub_branch = models.CharField(max_length=10000)
-#     average_number_staff = models.DecimalField(max_length=10000)
-#     average_salary = models.DecimalField(max_length=10000)
-#     taxes_to_budget = models.DecimalField(max_length=10000)
-#     income_tax = models.DecimalField(max_length=10000)
-#     property_tax = models.DecimalField(max_length=10000)
-#     land_tax = models.DecimalField(max_length=10000)
-#     ndfl = models.DecimalField(max_length=10000)
-#     transport_tax = models.DecimalField(max_length=10000)
-#     other_taxes = models.DecimalField(max_length=10000)
+class Industry_data(models.Model): #Обезличенные данные
+    main_branch = models.CharField(max_length=10000)
+    sub_branch = models.CharField(max_length=10000)
+    average_number_staff = models.DecimalField(max_length=10000)
+    average_salary = models.DecimalField(max_length=10000)
+    taxes_to_budget = models.DecimalField(max_length=10000)
+    income_tax = models.DecimalField(max_length=10000)
+    property_tax = models.DecimalField(max_length=10000)
+    land_tax = models.DecimalField(max_length=10000)
+    ndfl = models.DecimalField(max_length=10000)
+    transport_tax = models.DecimalField(max_length=10000)
+    other_taxes = models.DecimalField(max_length=10000)
 
 
