@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'mainpage.apps.MainpageConfig',
     'crispy_forms',
     "crispy_bootstrap5",
+'django_dbml',
+
 ]
 
 
