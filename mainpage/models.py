@@ -65,18 +65,18 @@ class order_instruments(models.Model): #Станок
     order = models.ForeignKey(Order_Varibles, on_delete=models.CASCADE)
 
 class CostCapitalConstraction(models.Model): #Стоимость капитального строительства
-    min_CostCapitalConstraction = models.IntegerField(max_length=99999999)
-    max_CostCapitalConstraction = models.IntegerField(max_length=99999999)
+    min_CostCapitalConstraction = models.IntegerField(max_length=100)
+    max_CostCapitalConstraction = models.IntegerField(max_length=100)
 
 
 class Accounting(models.Model): #Бухгалтерский учет
-    name = models.CharField(max_length=1000)
-    min_osn = models.IntegerField(max_length=100000)
-    max_osn = models.IntegerField(max_length=100000)
-    min_usn = models.IntegerField(max_length=10000)
-    max_usn = models.IntegerField(max_length=10000)
-    min_patent = models.IntegerField(max_length=10000)
-    max_patent = models.IntegerField(max_length=10000)
+    name = models.CharField(max_length=100)
+    min_osn = models.IntegerField(max_length=100)
+    max_osn = models.IntegerField(max_length=100)
+    min_usn = models.IntegerField(max_length=100)
+    max_usn = models.IntegerField(max_length=100)
+    min_patent = models.IntegerField(max_length=100)
+    max_patent = models.IntegerField(max_length=100)
 
 class StateDuty(models.Model): #Госпошлина
     name = models.CharField(max_length=100)
