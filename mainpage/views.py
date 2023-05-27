@@ -42,6 +42,8 @@ class CalculatorView(CreateView):
         obj = CalculatorForm.save(commit=False)
         obj.User_create_order = self.request.user
         obj.save()
+        return redirect("/")
+
 
 
 class CalculationDetailView(DetailView):
