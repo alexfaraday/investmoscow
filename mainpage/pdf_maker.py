@@ -152,7 +152,7 @@ def make_excel(branch,org_type,personal, district ): #Скачать excel
             max_len = max(series.astype(str).map(len).max(), len(str(series.name))) + 10
             worksheet.set_column(idx, idx, max_len)
     writer.close()
-    xxx='file_name+'+'result.xlsx'
+    xxx=file_name+'result.xlsx'
     return xxx
 
     # with open('mainpage/application/ms-excel/result.xlsx', 'rb') as f:
