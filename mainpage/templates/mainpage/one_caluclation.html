@@ -46,11 +46,9 @@
     </tr>
     <tr>
           <td>Организационно-правовая форма </td>
-        {% if object.organisation_type_id =1 %}
-      <td>ИП</td>
-        {% else %}
-          <td>ООО</td>
-        {% endif%}
+
+      <td> {{ object.organisation_type_id.name }}</td>
+
     </tr>
     <tr>
           <td>Отрасль </td>
