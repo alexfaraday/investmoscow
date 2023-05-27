@@ -82,7 +82,7 @@ def image_4(path='/home/c/cp31594/django_gsvno/public_html/media/img/4.jpg'): #Ð
                    fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
     pdf_name = '/home/c/cp31594/django_gsvno/public_html/media/img/' + '4_1.jpg'
 
-    im.save(pdf_name)
+
     im.save(pdf_name)
 
 
