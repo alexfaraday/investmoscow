@@ -85,14 +85,17 @@ class StateDuty(models.Model): #Госпошлина
 class Industry_data(models.Model): #Обезличенные данные
     main_branch = models.CharField(max_length=10000)
     sub_branch = models.CharField(max_length=10000)
-    average_number_staff = models.DecimalField(max_length=10000)
-    average_salary = models.DecimalField(max_length=10000)
-    taxes_to_budget = models.DecimalField(max_length=10000)
-    income_tax = models.DecimalField(max_length=10000)
-    property_tax = models.DecimalField(max_length=10000)
-    land_tax = models.DecimalField(max_length=10000)
-    ndfl = models.DecimalField(max_length=10000)
-    transport_tax = models.DecimalField(max_length=10000)
-    other_taxes = models.DecimalField(max_length=10000)
+    average_number_staff = models.IntegerField(max_length=10000)
+    average_salary = models.IntegerField(max_length=10000)
+    taxes_to_budget = models.IntegerField(max_length=10000)
+    income_tax = models.IntegerField(max_length=10000)
+    property_tax = models.IntegerField(max_length=10000)
+    land_tax = models.IntegerField(max_length=10000)
+    ndfl = models.IntegerField(max_length=10000)
+    transport_tax = models.IntegerField(max_length=10000)
+    other_taxes = models.IntegerField(max_length=10000)
 
-
+class Machines(models.Model): #Станки средняя цена
+    equipment_type = models.CharField(max_length=100)
+    average_cost_dol = models.FloatField(max_length=100)
+    avegare_price_rub = models.FloatField(max_length=100)
