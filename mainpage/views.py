@@ -69,9 +69,9 @@ class CalculatorView(CreateView):
             obj.total_AC_OSN = accunting['ИП (УСН 6%)']
         obj.pdf_link=make_invest_pdf()
         building_rent=rent(CalculatorForm.cleaned_data['area_yardage'],1,1,False)
-        obj.building_sum_min=building_rent[0]
+        obj.building_sum_min=list(building_rent)[0]
         try:
-            obj.building_sum_min = building_rent[1]
+            obj.building_sum_min = list(building_rent)[1]
         except:
             m=2
 
@@ -122,7 +122,7 @@ def registration(request):
             Profile.objects.create(user=request.user, name=name, surname=surname, middle_name=middle_name,
                                    email=email, organization=organization, inn=inn, site=site, branch=branch,
                                    country=country, city=city, position=position)
-            return render(request, 'mainpage/main.html')
+            return redirect('/profile')
     else:
         form1 = UserCreationForm()
         form2 = ProfileForm()
