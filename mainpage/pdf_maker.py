@@ -23,16 +23,16 @@ def image_3(industry_type,organisation_type,worker_amount,area_type,path='/home/
     font = ImageFont.truetype("/home/c/cp31594/django_gsvno/public_html/media/fonts/Roboto-Regular.ttf", 64,layout_engine=ImageFont.LAYOUT_BASIC, encoding='UTF-8')
     draw_text = ImageDraw.Draw(im)
 
-    branch = industry_type
+    branch = str(industry_type)
     draw_text.text((1200, 560), branch, fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
 
-    org_type =organisation_type
+    org_type =str(organisation_type)
     draw_text.text((1600, 770), org_type, fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
 
     employees_count = str(worker_amount)+ " человек"
     draw_text.text((1500, 1120), employees_count, fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
 
-    district = area_type
+    district =str( area_type)
     draw_text.text((1580, 1380), district, fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
 
     min_total_expenses = 100
