@@ -118,6 +118,7 @@ class CalculatorView(CreateView):
             obj.stanki_name_1=None
             obj.stanki_amount_1=0
             obj.stanki_sum1=0
+            stanki_sum1=0
 
         try:
             type2=CalculatorForm.cleaned_data['stanki_name_2'].replace('>', '').split(":")
@@ -128,6 +129,7 @@ class CalculatorView(CreateView):
             obj.stanki_name_2=None
             obj.stanki_amount_2=0
             obj.stanki_sum2=0
+            stanki_sum2 = 0
         try:
             type3=CalculatorForm.cleaned_data['stanki_name_3'].replace('>', '').split(":")
             amount3=CalculatorForm.cleaned_data['stanki_amount_3']
@@ -137,6 +139,7 @@ class CalculatorView(CreateView):
             obj.stanki_name_3=None
             obj.stanki_amount_3=0
             obj.stanki_sum3=0
+            stanki_sum3 = 0
 
         try:
             type4=CalculatorForm.cleaned_data['stanki_name_4'].replace('>', '').split(":")
@@ -147,6 +150,7 @@ class CalculatorView(CreateView):
             obj.stanki_name_4=None
             obj.stanki_amount_4=0
             obj.stanki_sum4=0
+            stanki_sum4 = 0
 
         stanki_total_suma=stanki_sum1+stanki_sum2+stanki_sum3+stanki_sum4
         obj.stanki_total_sum = stanki_total_suma
