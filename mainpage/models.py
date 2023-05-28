@@ -107,6 +107,11 @@ class Order_Varibles(models.Model): #калькулятор
     building_sum_max=models.IntegerField(blank=True, null=True)
     total_registrastion_fee=models.IntegerField(blank=True, null=True)
     total_patent_sum=models.IntegerField(blank=True, null=True)
+    stanki_sum1=models.IntegerField(blank=True, null=True)
+    stanki_sum2=models.IntegerField(blank=True, null=True)
+    stanki_sum3=models.IntegerField(blank=True, null=True)
+    stanki_sum4=models.IntegerField(blank=True, null=True)
+    stanki_total_sum=models.IntegerField(blank=True, null=True)
 
 
 

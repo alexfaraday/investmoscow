@@ -78,7 +78,7 @@ def image_4(pfr_min,oms_min, pfr_max, oms_max,worker_amount,path='/home/c/cp3159
 
     min_health_expenses = str(oms_min)
     max_health_expenses = str(oms_max)
-    draw_text.text((1400, 2700), "От {} до {} млн.руб. ".format(min_health_expenses, max_health_expenses),
+    draw_text.text((1400, 2700), "От {} до {} руб. ".format(min_health_expenses, max_health_expenses),
                    fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
     pdf_name ='/home/c/cp31594/django_gsvno/public_html/media/img/'+'4_1.jpg'
 
