@@ -58,7 +58,7 @@ class CalculatorView(CreateView):
         obj.salary_max=salary_fss_pfr['Год']['Зарплата']
         obj.total_personal_min=salary_fss_pfr['6 месяцев']['Итого']
         obj.total_personal_max=salary_fss_pfr['Год']['Итого']
-        if organization_type =='ИП':
+        if alculatorForm.cleaned_data['organisation_type'] =='ИП':
             option=1
         else:
             option=2
