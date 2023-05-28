@@ -19,8 +19,7 @@ urlpatterns = [
     path("",
          LoginView.as_view(
              template_name="mainpage/login.html",
-
-
+             redirect_authenticated_user=True,
          ),
          name="login"),
     path('main/', MainView.as_view(), name="main"),
