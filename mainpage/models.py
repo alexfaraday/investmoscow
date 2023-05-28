@@ -105,6 +105,8 @@ class Order_Varibles(models.Model): #калькулятор
     other_sum=models.IntegerField(blank=True, null=True)
     building_sum_min=models.IntegerField(blank=True, null=True)
     building_sum_max=models.IntegerField(blank=True, null=True)
+    total_registrastion_fee=models.IntegerField(blank=True, null=True)
+    total_patent_sum=models.IntegerField(blank=True, null=True)
 
 
 
