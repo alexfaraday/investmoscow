@@ -74,10 +74,10 @@ class CalculatorView(CreateView):
         items = list(building_rent.items())
 
         obj.building_sum_min=items[0][1]
-       # try:
-        #    obj.building_sum_max = items[1][0]
-        #except:
-         #   m=2
+        try:
+            obj.building_sum_max = items[1][1]
+        except:
+            m=2
 
 
 
