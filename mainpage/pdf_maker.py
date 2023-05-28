@@ -100,7 +100,8 @@ def make_pdf(page3,page4): #Создание pdf
     letters = string.ascii_lowercase
     file_name_pdf = ''.join(random.choice(letters) for i in range(10))
     pdf.output("/home/c/cp31594/django_gsvno/public_html/media/pdf/"+str(file_name_pdf)+"result.pdf")
-    return str(file_name_pdf)+'result.pdf'
+    xxx2=str(file_name_pdf)+'result.pdf'
+    return xxx2
 #
 
 def make_excel(branch,org_type,personal, district, salary_fss_pfr,total_sum_personal,building_sum_min,ndfl,rashod_na_account): #Скачать excel
@@ -125,7 +126,7 @@ def make_excel(branch,org_type,personal, district, salary_fss_pfr,total_sum_pers
         {'Наименование': ['Персонал', 'Аренда объектов недвижимости',
                           'Налоги', 'Услуги', 'Итого возможных расходов'],
             'Значение': [employees_expenses, rent_expenses, taxes_expenses, services_expenses,
-                         "От {} до {} млн.руб.".format(min_total_expenses, max_total_expenses)]})
+                         "От {} до {} руб.".format(min_total_expenses, max_total_expenses)]})
 
     #Третий лист
     min_totals = salary_fss_pfr['6 месяцев']['Итого']
