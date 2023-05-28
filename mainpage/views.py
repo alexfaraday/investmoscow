@@ -68,12 +68,12 @@ class CalculatorView(CreateView):
             obj.total_AC15 = accunting['ИП (УСН 15%, ЕСХН)']
             obj.total_AC_OSN = accunting['ИП (УСН 6%)']
         obj.pdf_link=make_invest_pdf()
-        building_rent=rent(CalculatorForm.cleaned_data['area_yardage'],1,1,False)
+        building_rent=rent(CalculatorForm.cleaned_data['area_yardage'],CalculatorForm.cleaned_data['area_type'],1,False)
         items = list(building_rent.items())
 
         obj.building_sum_min=items[0][1]
         try:
-            obj.building_sum_max = litems[1][1]
+            obj.building_sum_max = items[1][0]
         except:
             m=2
 
