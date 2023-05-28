@@ -15,7 +15,12 @@
         <div class="col-md-1"></div>
         <div class="col-md-10">
             <div class="card shadow">
+
 <div class="container">
+     <br>
+      <p class="text-center">Авторизация</p>
+    <br>
+
           <form method="post">
     {% csrf_token %}
 
@@ -23,7 +28,7 @@
     <div>
       <p><a href="{% url 'mainpage:register' %}">Регистрация</a></p>
     </div>
-    <button class="btn btn-primary" type="submit">Login</button>
+    <button class="btn btn-primary" type="submit" style="background-color: #cc2222">Login</button>
   </form>
 <br>
 <br>

@@ -73,8 +73,9 @@ class CalculatorView(CreateView):
             obj.total_AC_OSN = accunting['ИП (УСН 6%)']
 
         string=str(CalculatorForm.cleaned_data['area_type']).replace('>', '').split(":")
+        type_rent=str(CalculatorForm.cleaned_data['business_type']).replace('>', '').split(":")
 
-        building_rent=rent(CalculatorForm.cleaned_data['area_yardage'],string[0],4,CalculatorForm.cleaned_data['area_is_special_economic'])
+        building_rent=rent(CalculatorForm.cleaned_data['area_yardage'],string[0],type_rent[0],CalculatorForm.cleaned_data['area_is_special_economic'])
         #obj.building_sum_min = building_rent
         try:
             items = list(building_rent.items())
