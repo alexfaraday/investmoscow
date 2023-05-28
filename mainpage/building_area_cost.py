@@ -156,7 +156,7 @@ def rent(square: int, district: int, type: int, special_zone: bool) -> dict:
             res_dict = {'Покупка здания(ремонт требуется)': amount_of_buy_repair}
             return res_dict
 
-    print('Введены некорректные данные')
+    #print('Введены некорректные данные')
 
 # In[10]:
 
