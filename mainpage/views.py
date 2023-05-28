@@ -71,7 +71,7 @@ class CalculatorView(CreateView):
             obj.total_AC6 = accunting['ИП (ОСН)']
             obj.total_AC15 = accunting['ИП (УСН 15%, ЕСХН)']
             obj.total_AC_OSN = accunting['ИП (УСН 6%)']
-        obj.pdf_link=make_invest_pdf()
+
         string=str(CalculatorForm.cleaned_data['area_type']).replace('>', '').split(":")
 
         building_rent=rent(CalculatorForm.cleaned_data['area_yardage'],string[0],4,CalculatorForm.cleaned_data['area_is_special_economic'])
@@ -98,14 +98,13 @@ class CalculatorView(CreateView):
             registrastion_OOO_IP=0
 
         obj.total_registrastion_fee=registrastion_OOO_IP
-        obj.total_patent_sum=registrastion_OOO_IP
+        obj.total_patent_sum=total_patent
 
 
 
         obj.excel_link =make_excel(CalculatorForm.cleaned_data['industry_type'],CalculatorForm.cleaned_data['organisation_type'],CalculatorForm.cleaned_data['worker_amount'],CalculatorForm.cleaned_data['area_type'], salary_fss_pfr)
 
-
-
+        obj.pdf_link = make_invest_pdf(CalculatorForm.cleaned_data['industry_type'],CalculatorForm.cleaned_data['organisation_type'],CalculatorForm.cleaned_data['worker_amount'],CalculatorForm.cleaned_data['area_type'])
 
         obj.save()
 
