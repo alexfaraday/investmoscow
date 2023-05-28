@@ -109,6 +109,48 @@ class CalculatorView(CreateView):
 
 
 
+        try:
+            type1=CalculatorForm.cleaned_data['stanki_name_1']
+            amount1=CalculatorForm.cleaned_data['stanki_amount_1']
+            stanki_sum1=machinery(type1,amount1)
+        except:
+            obj.stanki_name_1=0
+            obj.stanki_amount_1=0
+            obj.stanki_sum1=0
+        try:
+            type2=CalculatorForm.cleaned_data['stanki_name_2']
+            amount2=CalculatorForm.cleaned_data['stanki_amount_2']
+            stanki_sum2=machinery(type2,amount2)
+        except:
+            obj.stanki_name_2=0
+            obj.stanki_amount_2=0
+            obj.stanki_sum2=0
+        try:
+            type3=CalculatorForm.cleaned_data['stanki_name_3']
+            amount3=CalculatorForm.cleaned_data['stanki_amount_3']
+            stanki_sum3=machinery(type3,amount3)
+        except:
+            obj.stanki_name_3=0
+            obj.stanki_amount_3=0
+            obj.stanki_sum3=0
+
+        try:
+            type4=CalculatorForm.cleaned_data['stanki_name_4']
+            amount4=CalculatorForm.cleaned_data['stanki_amount_4']
+            stanki_sum4=machinery(type4,amount4)
+        except:
+            obj.stanki_name_4=0
+            obj.stanki_amount_4=0
+            obj.stanki_sum4=0
+
+        stanki_total_suma=stanki_sum1+stanki_sum2+stanki_sum3+stanki_sum4
+        obj.stanki_total_sum = stanki_total_suma
+
+
+
+
+
+
         obj.excel_link =make_excel(CalculatorForm.cleaned_data['industry_type'],CalculatorForm.cleaned_data['organisation_type'],CalculatorForm.cleaned_data['worker_amount'],CalculatorForm.cleaned_data['area_type'], salary_fss_pfr)
 
         obj.pdf_link = make_invest_pdf(CalculatorForm.cleaned_data['industry_type'],CalculatorForm.cleaned_data['organisation_type'],CalculatorForm.cleaned_data['worker_amount'],CalculatorForm.cleaned_data['area_type'],
