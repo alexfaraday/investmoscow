@@ -57,27 +57,27 @@ def image_3(industry_type,organisation_type,worker_amount,area_type,path='/home/
     return pdf_name
 
 
-def image_4(path='/home/c/cp31594/django_gsvno/public_html/media/img/4.jpg'): #Здесь данные для 4 страницы
+def image_4(pfr_min,oms_min, pfr_max, oms_max,worker_amount,path='/home/c/cp31594/django_gsvno/public_html/media/img/4.jpg'): #Здесь данные для 4 страницы
     im = Image.open(path)
     font = ImageFont.truetype("/home/c/cp31594/django_gsvno/public_html/media/fonts/Roboto-Regular.ttf", 64,layout_engine=ImageFont.LAYOUT_BASIC, encoding='UTF-8')
     draw_text = ImageDraw.Draw(im)
 
     min_totals = 100
     max_totals = 300
-    draw_text.text((1400, 1910), text="От {} до {} млн.руб.".format(min_totals, max_totals),
+    draw_text.text((1400, 1910), text="От {} до {} руб.".format(min_totals, max_totals),
                    fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
 
-    employees_count = 20
+    employees_count = str(worker_amount)
     draw_text.text((1550, 2170), "{} человек ".format(employees_count), fill=('#1C0606'),
                    font=font, stroke_width=1, stroke_fill="black")
 
-    min_pensionary_expenses = 10
-    max_pensionary_expenses = 100
-    draw_text.text((1400, 2430), "От {} до {} млн.руб. ".format(min_pensionary_expenses, max_pensionary_expenses),
+    min_pensionary_expenses = str(pfr_min)
+    max_pensionary_expenses = str(pfr_max)
+    draw_text.text((1400, 2430), "От {} до {} руб. ".format(min_pensionary_expenses, max_pensionary_expenses),
                    fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
 
-    min_health_expenses = 10
-    max_health_expenses = 100
+    min_health_expenses = str(oms_min)
+    max_health_expenses = str(oms_max)
     draw_text.text((1400, 2700), "От {} до {} млн.руб. ".format(min_health_expenses, max_health_expenses),
                    fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
     pdf_name ='/home/c/cp31594/django_gsvno/public_html/media/img/'+'4_1.jpg'
@@ -170,8 +170,8 @@ def make_excel(branch,org_type,personal, district, salary_fss_pfr ): #Скача
     # return response
 
 
-def make_invest_pdf(industry_type,organisation_type,worker_amount,area_type):
+def make_invest_pdf(industry_type,organisation_type,worker_amount,area_type, pfr_min,oms_min, pfr_max, oms_max):
     page3=image_3(industry_type,organisation_type,worker_amount,area_type)
-    page4=image_4()
+    page4=image_4(pfr_min,oms_min, pfr_max, oms_max,worker_amount)
     make_pdf(page3,page4)
     return 'result.pdf'
