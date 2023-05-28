@@ -36,8 +36,8 @@ def image_3(industry_type,organisation_type,worker_amount,area_type,rashod_na_ac
     draw_text.text((1580, 1380), district, fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
 
     min_total_expenses = str(total_all_sum)
-    max_total_expenses = 300
-    draw_text.text((1300, 1800), "От {} до {} млн.руб.".format(min_total_expenses, max_total_expenses),
+    max_total_expenses = ''
+    draw_text.text((1300, 1800), "От {} руб.".format(min_total_expenses, max_total_expenses),
                    fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
 
     employees_expenses = str(total_sum_personal)+" руб."
@@ -57,14 +57,14 @@ def image_3(industry_type,organisation_type,worker_amount,area_type,rashod_na_ac
     return pdf_name
 
 
-def image_4(pfr_min,oms_min, pfr_max, oms_max,worker_amount,path='/home/c/cp31594/django_gsvno/public_html/media/img/4.jpg'): #Здесь данные для 4 страницы
+def image_4(pfr_min,oms_min, pfr_max, oms_max,worker_amount,total_sum_personal,path='/home/c/cp31594/django_gsvno/public_html/media/img/4.jpg'): #Здесь данные для 4 страницы
     im = Image.open(path)
     font = ImageFont.truetype("/home/c/cp31594/django_gsvno/public_html/media/fonts/Roboto-Regular.ttf", 64,layout_engine=ImageFont.LAYOUT_BASIC, encoding='UTF-8')
     draw_text = ImageDraw.Draw(im)
 
-    min_totals = 100
-    max_totals = 300
-    draw_text.text((1400, 1910), text="От {} до {} руб.".format(min_totals, max_totals),
+    min_totals = str(total_sum_personal)
+    max_totals = ''
+    draw_text.text((1400, 1910), text="От {} руб.".format(min_totals, max_totals),
                    fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
 
     employees_count = str(worker_amount)
@@ -97,11 +97,12 @@ def make_pdf(page3,page4): #Создание pdf
     pdf.image(page3, x=0, y=0, w=211)
     pdf.add_page()
     pdf.image(page4, x=0, y=0, w=211)
-    pdf.output("/home/c/cp31594/django_gsvno/public_html/media/pdf/result.pdf")
-    return 'result.pdf'
+    file_name_pdf = ''.join(random.choice(letters) for i in range(10))
+    pdf.output("/home/c/cp31594/django_gsvno/public_html/media/pdf/"+str(file_name_pdf)+"result.pdf")
+    return str(file_name_pdf)+'result.pdf'
 #
 
-def make_excel(branch,org_type,personal, district, salary_fss_pfr ): #Скачать excel
+def make_excel(branch,org_type,personal, district, salary_fss_pfr,total_sum_personal,building_sum_min,ndfl,rashod_na_account): #Скачать excel
 
     #Первый лист
     branch = branch
@@ -113,12 +114,12 @@ def make_excel(branch,org_type,personal, district, salary_fss_pfr ): #Скача
                                       'Значение': [branch, org_type, employees_count, district]})
 
     #Второй лист
-    min_total_expenses = 100
-    max_total_expenses = 300
-    employees_expenses = "{} млн.руб.".format(20)
-    rent_expenses = "{} руб.".format(140)
-    taxes_expenses = "{} руб.".format(20)
-    services_expenses = "{} руб.".format(20)
+    min_total_expenses = str(total_sum_personal)
+    max_total_expenses = str(building_sum_min)
+    employees_expenses = str(total_sum_personal)+"руб."
+    rent_expenses =str(building_sum_min)+" руб."
+    taxes_expenses =str(ndfl)+"руб."
+    services_expenses =str(rashod_na_account)+" руб."
     possible_costs = pd.DataFrame(
         {'Наименование': ['Персонал', 'Аренда объектов недвижимости',
                           'Налоги', 'Услуги', 'Итого возможных расходов'],
@@ -172,6 +173,6 @@ def make_excel(branch,org_type,personal, district, salary_fss_pfr ): #Скача
 
 def make_invest_pdf(industry_type,organisation_type,worker_amount,area_type, pfr_min,oms_min, pfr_max, oms_max,rashod_na_account,building_sum_min,ndfl,total_sum_personal,total_all_sum):
     page3=image_3(industry_type,organisation_type,worker_amount,area_type,rashod_na_account,building_sum_min,ndfl,total_sum_personal, total_all_sum)
-    page4=image_4(pfr_min,oms_min, pfr_max, oms_max,worker_amount)
+    page4=image_4(pfr_min,oms_min, pfr_max, oms_max,worker_amount, total_sum_personal)
     make_pdf(page3,page4)
     return 'result.pdf'
