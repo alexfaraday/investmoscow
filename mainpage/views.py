@@ -164,7 +164,10 @@ class CalculatorView(CreateView):
             rashod_na_account = accunting['ООО (ОСН)']
 
         total_sum_personal=salary_fss_pfr['6 месяцев']['Зарплата']+salary_fss_pfr['6 месяцев']['НДФЛ']+ salary_fss_pfr['6 месяцев']['ОПС']+salary_fss_pfr['6 месяцев']['ОМС']
-        total_all_sum=total_sum_personal+stanki_total_suma+total_patent+registrastion_OOO_IP+building_sum_min
+        try:
+            total_all_sum=total_sum_personal+stanki_total_suma+total_patent+registrastion_OOO_IP+building_sum_min
+        except:
+            total_all_sum = total_sum_personal + stanki_total_suma + total_patent + registrastion_OOO_IP
 
 
 
