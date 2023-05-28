@@ -113,6 +113,8 @@ class CalculatorView(CreateView):
         type1=str(CalculatorForm.cleaned_data['stanki_name_1']).replace('>', '').split(":")
         amount1=CalculatorForm.cleaned_data['stanki_amount_1']
         stanki_sum1=machinery(type1[0],amount1)
+        obj.stanki_sum1=stanki_sum1
+
         # except:
         #     obj.stanki_name_1=Null
         #     obj.stanki_amount_1=0
