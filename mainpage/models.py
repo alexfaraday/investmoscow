@@ -9,6 +9,13 @@ class Branch(models.Model):
 
     def __str__(self):
         return self.name
+class Machines(models.Model): #Станки средняя цена
+    equipment_type = models.TextField(max_length=100)
+    average_cost_dol = models.FloatField(max_length=100)
+    avegare_price_rub = models.FloatField(max_length=100)
+
+    def __str__(self):
+        return self.equipment_type
 
 
 class Profile(models.Model):
@@ -85,6 +92,19 @@ class Order_Varibles(models.Model): #калькулятор
     all_personal=models.IntegerField(max_length=99,blank=True, null=True)
     excel_link=models.CharField(max_length=99,blank=True, null=True)
     pdf_link=models.CharField(max_length=99,blank=True, null=True)
+    stanki_name_1 = models.ForeignKey(Machines, default=None, null=True, on_delete=models.CASCADE)
+    stanki_name_2 = models.ForeignKey(Machines, default=None, null=True, on_delete=models.CASCADE)
+    stanki_name_3 = models.ForeignKey(Machines, default=None, null=True, on_delete=models.CASCADE)
+    stanki_name_4 = models.ForeignKey(Machines, default=None, null=True, on_delete=models.CASCADE)
+    stanki_amount_1 = models.IntegerField(blank=True, null=True)
+    stanki_amount_2 = models.IntegerField(blank=True, null=True)
+    stanki_amount_3 = models.IntegerField(blank=True, null=True)
+    stanki_amount_4 = models.IntegerField(blank=True, null=True)
+    stanki_total_sum = models.IntegerField(blank=True, null=True)
+    transport_sum=models.IntegerField(blank=True, null=True)
+    other_sum=models.IntegerField(blank=True, null=True)
+
+
 
 
 
@@ -126,7 +146,3 @@ class Industry_data(models.Model): #Обезличенные данные
     transport_tax = models.IntegerField(max_length=100)
     other_taxes = models.IntegerField(max_length=100)
 
-class Machines(models.Model): #Станки средняя цена
-    equipment_type = models.TextField(max_length=100)
-    average_cost_dol = models.FloatField(max_length=100)
-    avegare_price_rub = models.FloatField(max_length=100)
