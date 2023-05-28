@@ -70,7 +70,7 @@ class CalculatorView(CreateView):
         obj.pdf_link=make_invest_pdf()
         string=str(CalculatorForm.cleaned_data['area_type']).replace('>', '').split(":")
 
-        building_rent=rent(CalculatorForm.cleaned_data['area_yardage'],string[1],1,False)
+        building_rent=rent(CalculatorForm.cleaned_data['area_yardage'],string,1,False)
         items = list(building_rent.items())
 
         obj.building_sum_min=items[0][1]
