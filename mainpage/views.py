@@ -173,12 +173,19 @@ class CalculatorView(CreateView):
 
         obj.excel_link =make_excel(CalculatorForm.cleaned_data['industry_type'],CalculatorForm.cleaned_data['organisation_type'],CalculatorForm.cleaned_data['worker_amount'],CalculatorForm.cleaned_data['area_type'], salary_fss_pfr)
 
-        obj.pdf_link = make_invest_pdf(CalculatorForm.cleaned_data['industry_type'],CalculatorForm.cleaned_data['organisation_type'],CalculatorForm.cleaned_data['worker_amount'],CalculatorForm.cleaned_data['area_type'],
+        obj.pdf_link = make_invest_pdf(CalculatorForm.cleaned_data['industry_type'],
+                                       CalculatorForm.cleaned_data['organisation_type'],
+                                       CalculatorForm.cleaned_data['worker_amount'],
+                                       CalculatorForm.cleaned_data['area_type'],
                                        salary_fss_pfr['6 месяцев']['ОПС'],
                                        salary_fss_pfr['6 месяцев']['ОМС'],
                                        salary_fss_pfr['Год']['ОПС'],
                                        salary_fss_pfr['Год']['ОПС'],
-                                       rashod_na_account,building_sum_min, salary_fss_pfr['6 месяцев']['НДФЛ'],total_sum_personal,total_all_sum
+                                       rashod_na_account,
+                                       building_sum_min,
+                                       salary_fss_pfr['6 месяцев']['НДФЛ'],
+                                       total_sum_personal,
+                                       total_all_sum
 
 
                                        )
