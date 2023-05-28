@@ -69,7 +69,9 @@ class CalculatorView(CreateView):
             obj.total_AC_OSN = accunting['ИП (УСН 6%)']
         obj.pdf_link=make_invest_pdf()
         building_rent=rent(CalculatorForm.cleaned_data['area_yardage'],1,1,False)
-        obj.building_sum_min=list(building_rent)
+        items = list(building_rent.items())
+
+        obj.building_sum_min=items
         try:
             obj.building_sum_min = list(building_rent)
         except:
