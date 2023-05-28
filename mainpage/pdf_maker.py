@@ -18,21 +18,21 @@ import os
 #     return response
 #
 #
-def image_3(path='/home/c/cp31594/django_gsvno/public_html/media/img/3.jpg'): #Здесь данные для 3 страницы
+def image_3(industry_type,organisation_type,worker_amount,area_type,path='/home/c/cp31594/django_gsvno/public_html/media/img/3.jpg'): #Здесь данные для 3 страницы
     im = Image.open(path)
     font = ImageFont.truetype("/home/c/cp31594/django_gsvno/public_html/media/fonts/Roboto-Regular.ttf", 64,layout_engine=ImageFont.LAYOUT_BASIC, encoding='UTF-8')
     draw_text = ImageDraw.Draw(im)
 
-    branch = "Авиационная промышленность"
+    branch = industry_type
     draw_text.text((1200, 560), branch, fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
 
-    org_type = "ИП"
+    org_type =organisation_type
     draw_text.text((1600, 770), org_type, fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
 
-    employees_count = "{} человек".format(20)
+    employees_count = str(worker_amount)+ " человек"
     draw_text.text((1500, 1120), employees_count, fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
 
-    district = "ЦАО"
+    district = area_type
     draw_text.text((1580, 1380), district, fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
 
     min_total_expenses = 100
@@ -170,8 +170,8 @@ def make_excel(branch,org_type,personal, district, salary_fss_pfr ): #Скача
     # return response
 
 
-def make_invest_pdf():
-    page3=image_3()
+def make_invest_pdf(industry_type,organisation_type,worker_amount,area_type):
+    page3=image_3(industry_type,organisation_type,worker_amount,area_type)
     page4=image_4()
     make_pdf(page3,page4)
     return 'result.pdf'
