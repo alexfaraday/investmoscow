@@ -71,6 +71,7 @@ class CalculatorView(CreateView):
         string=str(CalculatorForm.cleaned_data['area_type']).replace('>', '').split(":")
 
         building_rent=rent(CalculatorForm.cleaned_data['area_yardage'],string[0],CalculatorForm.cleaned_data['business_type'],CalculatorForm.cleaned_data['area_is_special_economic'])
+        obj.building_sum_min = building_rent
         try:
             items = list(building_rent.items())
 
