@@ -170,7 +170,7 @@ def make_excel(branch,org_type,personal, district, salary_fss_pfr ): #Скача
     # return response
 
 
-def make_invest_pdf(industry_type,organisation_type,worker_amount,area_type, pfr_min,oms_min, pfr_max, oms_max,rashod_na_account,building_sum_min,ndfl,total_sum_personal):
+def make_invest_pdf(industry_type,organisation_type,worker_amount,area_type, pfr_min,oms_min, pfr_max, oms_max,rashod_na_account,building_sum_min,ndfl,total_sum_personal,total_all_sum):
     page3=image_3(industry_type,organisation_type,worker_amount,area_type,rashod_na_account,building_sum_min,ndfl,total_sum_personal, total_all_sum)
     page4=image_4(pfr_min,oms_min, pfr_max, oms_max,worker_amount)
     make_pdf(page3,page4)
