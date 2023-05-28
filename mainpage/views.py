@@ -68,7 +68,7 @@ class CalculatorView(CreateView):
             obj.total_AC15 = accunting['ИП (УСН 15%, ЕСХН)']
             obj.total_AC_OSN = accunting['ИП (УСН 6%)']
         obj.pdf_link=make_invest_pdf()
-        string=CalculatorForm.cleaned_data['area_type'].replace('>', '').split(":")
+        string=str(CalculatorForm.cleaned_data['area_type']).replace('>', '').split(":")
 
         building_rent=rent(CalculatorForm.cleaned_data['area_yardage'],CalculatorForm.cleaned_data['area_type'],1,False)
         items = list(building_rent.items())
