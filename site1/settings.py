@@ -140,5 +140,5 @@ MEDIA_ROOT = os.path.join(
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-LOGIN_REDIRECT_URL = reverse_lazy('mainpage:main')
+LOGIN_REDIRECT_URL = reverse_lazy('mainpage:profile')
 LOGIN_URL = reverse_lazy('mainpage:login')
