@@ -97,6 +97,7 @@ def make_pdf(page3,page4): #Создание pdf
     pdf.image(page3, x=0, y=0, w=211)
     pdf.add_page()
     pdf.image(page4, x=0, y=0, w=211)
+    letters = string.ascii_lowercase
     file_name_pdf = ''.join(random.choice(letters) for i in range(10))
     pdf.output("/home/c/cp31594/django_gsvno/public_html/media/pdf/"+str(file_name_pdf)+"result.pdf")
     return str(file_name_pdf)+'result.pdf'
