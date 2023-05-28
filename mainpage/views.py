@@ -58,7 +58,11 @@ class CalculatorView(CreateView):
         obj.salary_max=salary_fss_pfr['Год']['Зарплата']
         obj.total_personal_min=salary_fss_pfr['6 месяцев']['Итого']
         obj.total_personal_max=salary_fss_pfr['Год']['Итого']
-        accunting= accounting_func(1,CalculatorForm.cleaned_data['worker_amount'])
+        if organization_type =='ИП':
+            option=1
+        else:
+            option=2
+        accunting= accounting_func(option,CalculatorForm.cleaned_data['worker_amount'])
         try:
             obj.total_AC6 =accunting['ООО (ОСН)']
             obj.total_AC15 =accunting['ООО (УСН 15%, ЕСХН)']
