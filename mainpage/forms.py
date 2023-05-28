@@ -28,7 +28,7 @@ class CalculatorForm(forms.ModelForm):
     class Meta:
         model = Order_Varibles
         fields = ['industry_type', 'organisation_type', 'worker_amount','area_type','area_is_special_economic','business_type','area_yardage','need_water',
-                  'need_gas','need_electricity', 'is_patent_use']
+                  'need_gas','need_electricity', 'is_patent_use','stanki_name_1','stanki_amount_1','stanki_name_2','stanki_amount_2','stanki_name_3','stanki_amount_3','stanki_name_4','istanki_amount_4']
         labels = {'industry_type':'Отрасль ведения хозяйственной деятельности',
                   'organisation_type':'Организационно-правовая форма',
         'worker_amount':'Количество сотрудников',
@@ -40,6 +40,15 @@ class CalculatorForm(forms.ModelForm):
         'need_water':'Необходимо подключение к водопроводу',
                   'need_gas':'Необходимо подключение к газу',
         'need_electricity':'Необходимо подключение к электричеству',
+                  'stanki_name_1':'Станки тип 1',
+                  'stanki_name_2':'Станки тип 2',
+                  'stanki_name_3':'Станки тип 3',
+                  'stanki_name_4':'Станки тип 4',
+
+                  'stanki_amount_1': 'Количество станков 1 типа ',
+                  'stanki_amount_2': 'Количество станков 2 типа ',
+                  'stanki_amount_3': 'Количество станков 3 типа ',
+                  'stanki_amount_4': 'Количество станков 4 типа ',
 
         'is_patent_use':'Использовать патент' }
 
