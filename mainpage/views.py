@@ -75,7 +75,7 @@ class CalculatorView(CreateView):
         string=str(CalculatorForm.cleaned_data['area_type']).replace('>', '').split(":")
 
         building_rent=rent(CalculatorForm.cleaned_data['area_yardage'],string[0],4,CalculatorForm.cleaned_data['area_is_special_economic'])
-        obj.building_sum_min = building_rent
+        #obj.building_sum_min = building_rent
         try:
             items = list(building_rent.items())
             if items[0][1]== 'Введены некорректные данные':
