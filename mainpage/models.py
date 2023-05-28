@@ -103,17 +103,15 @@ class Order_Varibles(models.Model): #калькулятор
     stanki_total_sum = models.IntegerField(blank=True, null=True)
     transport_sum=models.IntegerField(blank=True, null=True)
     other_sum=models.IntegerField(blank=True, null=True)
+    building_sum_min=models.IntegerField(blank=True, null=True)
+    building_sum_max=models.IntegerField(blank=True, null=True)
 
 
 
 
 
 
-class order_instruments(models.Model): #Станок
-    instrument_name = models.TextField(max_length=100)
-    instrument_amount = models.IntegerField(max_length=99)
-    instrument_price = models.IntegerField(max_length=99)
-    order = models.ForeignKey(Order_Varibles, on_delete=models.CASCADE)
+
 
 class CostCapitalConstraction(models.Model): #Стоимость капитального строительства
     min_CostCapitalConstraction = models.IntegerField(max_length=100)

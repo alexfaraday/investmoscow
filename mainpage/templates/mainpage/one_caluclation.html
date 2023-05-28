@@ -14,7 +14,7 @@
             <div class="card shadow">
                 <div class="container"><br>
 <br>
-                                    <h1 class="text-center">Рассчеты</h1>
+                                    <h1 class="text-center">Расчет {{ object.id }}</h1>
                   <a href="/media/{{ object.excel_link }}"> <button class="btn btn-primary">Скачать финмодель</button></a>
                     <a href="/media/pdf/{{ object.pdf_link }}"> <button class="btn btn-primary">Скачать буклет</button></a>
 <table class="table table-striped">
@@ -37,7 +37,7 @@
     </tr>
      <tr>
           <td>Дата расчета </td>
-      <td>{{ object.order_create_date }}</td>
+      <td>{{ object.order_create_date|date:"SHORT_DATE_FORMAT" }}</td>
     </tr>
   <tr>
           <td>Площадь производства </td>
