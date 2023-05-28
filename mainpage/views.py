@@ -87,6 +87,18 @@ class CalculatorView(CreateView):
             obj.building_sum_max = items[1][1]
         except:
             m=2
+        try:
+            total_patent=patent(option)
+        except:
+            total_patent=0
+
+        try:
+            registrastion_OOO_IP=registrastion_fee(option)
+        except:
+            registrastion_OOO_IP=0
+
+        obj.total_registrastion_fee=registrastion_OOO_IP
+        obj.total_patent_sum=registrastion_OOO_IP
 
 
 

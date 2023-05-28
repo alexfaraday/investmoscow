@@ -62,3 +62,25 @@ def wages(industry_type_id, num_employees):
     return res_wage_dict
 
 
+def patent(company_type:int)->int:
+    '''
+    Среднее значение патента на основе потенциального дохода, предоставленного в датасетах
+    company_type 1 = ИП. 2 - ООО
+    '''
+    try:
+        if company_type == 1:
+            return 255.969 * 1_000
+        else:
+            return 0
+    except:
+        return 0
+
+def registrastion_fee(company_type:int)->int:
+    '''
+    Функция расчета госпошлины за регистрацию в зависимости от кода ОКОПФ компании
+    company_type 1 = ИП. 2 - ООО
+    '''
+    try:
+        return 800 if company_type == 1 else 4_000
+    except:
+        print('Введены некорректные данные')
