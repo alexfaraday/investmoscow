@@ -83,6 +83,7 @@ class CalculatorView(CreateView):
             else:
                 obj.building_sum_min=items[0][1]
         except:
+            items = list(building_rent.items())
             if items[0][1] == 'Введены некорректные данные':
                 obj.building_sum_min =0
 
