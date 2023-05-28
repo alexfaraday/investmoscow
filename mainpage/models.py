@@ -101,6 +101,9 @@ class Order_Varibles(models.Model): #калькулятор
     stanki_amount_3 = models.IntegerField(blank=True, null=True)
     stanki_amount_4 = models.IntegerField(blank=True, null=True)
     stanki_total_sum = models.IntegerField(blank=True, null=True)
+    transport_sum=models.IntegerField(blank=True, null=True)
+    other_sum=models.IntegerField(blank=True, null=True)
+
 
 
 
