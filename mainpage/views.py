@@ -80,8 +80,10 @@ class CalculatorView(CreateView):
             items = list(building_rent.items())
             if items[0][1]== 'Введены некорректные данные':
                 obj.building_sum_min = 0
+                building_sum_min = 0
             else:
                 obj.building_sum_min=items[0][1]
+                building_sum_min = items[0][1]
         except:
 
             if building_rent == 'Введены некорректные данные':
@@ -155,6 +157,15 @@ class CalculatorView(CreateView):
         stanki_total_suma=stanki_sum1+stanki_sum2+stanki_sum3+stanki_sum4
         obj.stanki_total_sum = stanki_total_suma
 
+        if option==1:
+            rashod_na_account=accunting['ИП (ОСН)']
+        else:
+            rashod_na_account = accunting['ООО (ОСН)']
+
+        total_sum_personal=salary_fss_pfr['6 месяцев']['Зарплата']+salary_fss_pfr['6 месяцев']['НДФЛ']+ salary_fss_pfr['6 месяцев']['ОПС']+salary_fss_pfr['6 месяцев']['ОМС']
+        total_all_sum=total_sum_personal+stanki_total_suma+total_patent+registrastion_OOO_IP+building_sum_min
+
+
 
 
 
@@ -166,7 +177,8 @@ class CalculatorView(CreateView):
                                        salary_fss_pfr['6 месяцев']['ОПС'],
                                        salary_fss_pfr['6 месяцев']['ОМС'],
                                        salary_fss_pfr['Год']['ОПС'],
-                                       salary_fss_pfr['Год']['ОПС']
+                                       salary_fss_pfr['Год']['ОПС'],
+                                       rashod_na_account,building_sum_min, salary_fss_pfr['6 месяцев']['НДФЛ'],total_sum_personal,total_all_sum
 
 
                                        )

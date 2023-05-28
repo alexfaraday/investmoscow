@@ -18,7 +18,7 @@ import os
 #     return response
 #
 #
-def image_3(industry_type,organisation_type,worker_amount,area_type,path='/home/c/cp31594/django_gsvno/public_html/media/img/3.jpg'): #Здесь данные для 3 страницы
+def image_3(industry_type,organisation_type,worker_amount,area_type,rashod_na_account,building_sum_min, ndfl,total_sum_personal,total_all_sum,path='/home/c/cp31594/django_gsvno/public_html/media/img/3.jpg'): #Здесь данные для 3 страницы
     im = Image.open(path)
     font = ImageFont.truetype("/home/c/cp31594/django_gsvno/public_html/media/fonts/Roboto-Regular.ttf", 64,layout_engine=ImageFont.LAYOUT_BASIC, encoding='UTF-8')
     draw_text = ImageDraw.Draw(im)
@@ -35,21 +35,21 @@ def image_3(industry_type,organisation_type,worker_amount,area_type,path='/home/
     district =str( area_type)
     draw_text.text((1580, 1380), district, fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
 
-    min_total_expenses = 100
+    min_total_expenses = str(total_all_sum)
     max_total_expenses = 300
     draw_text.text((1300, 1800), "От {} до {} млн.руб.".format(min_total_expenses, max_total_expenses),
                    fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
 
-    employees_expenses = "{} млн.руб.".format(20)
+    employees_expenses = str(total_sum_personal)+" руб."
     draw_text.text((1500, 2190), employees_expenses, fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
 
-    rent_expenses = "{} млн.руб.".format(140)
+    rent_expenses =str(building_sum_min)+" руб."
     draw_text.text((1500, 2410), rent_expenses, fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
 
-    taxes_expenses = "{} млн.руб.".format(20)
+    taxes_expenses = str(ndfl)+" руб."
     draw_text.text((1500, 2610), taxes_expenses, fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
 
-    services_expenses = "{} млн.руб.".format(20)
+    services_expenses = str(rashod_na_account)+" руб."
     draw_text.text((1500, 2800), services_expenses, fill=('#1C0606'), font=font, stroke_width=1, stroke_fill="black")
     pdf_name='/home/c/cp31594/django_gsvno/public_html/media/img/'+'3_1.jpg'
 
