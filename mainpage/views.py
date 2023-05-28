@@ -109,46 +109,45 @@ class CalculatorView(CreateView):
 
 
 
-        #try:
-        type1=str(CalculatorForm.cleaned_data['stanki_name_1']).replace('>', '').split(":")
-        amount1=CalculatorForm.cleaned_data['stanki_amount_1']
-        stanki_sum1=machinery(type1[0],amount1)
-        obj.stanki_sum1=stanki_sum1
+        try:
+            type1=str(CalculatorForm.cleaned_data['stanki_name_1']).replace('>', '').split(":")
+            amount1=CalculatorForm.cleaned_data['stanki_amount_1']
+            stanki_sum1=machinery(type1[0],amount1)
+            obj.stanki_sum1=stanki_sum1
+        except:
+            obj.stanki_name_1=None
+            obj.stanki_amount_1=0
+            obj.stanki_sum1=0
+        try:
+            type2=CalculatorForm.cleaned_data['stanki_name_2'].replace('>', '').split(":")
+            amount2=CalculatorForm.cleaned_data['stanki_amount_2']
+            stanki_sum2=machinery(type[0],amount2)
+        except:
+            obj.stanki_name_2=None
+            obj.stanki_amount_2=0
+            obj.stanki_sum2=0
+        try:
+            type3=CalculatorForm.cleaned_data['stanki_name_3'].replace('>', '').split(":")
+            amount3=CalculatorForm.cleaned_data['stanki_amount_3']
+            stanki_sum3=machinery(type3[0],amount3)
+        except:
+            obj.stanki_name_3=None
+            obj.stanki_amount_3=0
+            obj.stanki_sum3=0
 
-        # except:
-        #     obj.stanki_name_1=Null
-        #     obj.stanki_amount_1=0
-        #     obj.stanki_sum1=0
-        # try:
-        #     type2=CalculatorForm.cleaned_data['stanki_name_2']
-        #     amount2=CalculatorForm.cleaned_data['stanki_amount_2']
-        #     stanki_sum2=machinery(type2,amount2)
-        # except:
-        #     obj.stanki_name_2=Null
-        #     obj.stanki_amount_2=0
-        #     obj.stanki_sum2=0
-        # try:
-        #     type3=CalculatorForm.cleaned_data['stanki_name_3']
-        #     amount3=CalculatorForm.cleaned_data['stanki_amount_3']
-        #     stanki_sum3=machinery(type3,amount3)
-        # except:
-        #     obj.stanki_name_3=Null
-        #     obj.stanki_amount_3=0
-        #     obj.stanki_sum3=0
-        #
-        # try:
-        #     type4=CalculatorForm.cleaned_data['stanki_name_4']
-        #     amount4=CalculatorForm.cleaned_data['stanki_amount_4']
-        #     stanki_sum4=machinery(type4,amount4)
-        # except:
-        #     obj.stanki_name_4=Null
-        #     obj.stanki_amount_4=0
-        #     obj.stanki_sum4=0
-        #
-        # stanki_total_suma=stanki_sum1+stanki_sum2+stanki_sum3+stanki_sum4
-        # obj.stanki_total_sum = stanki_total_suma
-        #
-        #
+        try:
+            type4=CalculatorForm.cleaned_data['stanki_name_4'].replace('>', '').split(":")
+            amount4=CalculatorForm.cleaned_data['stanki_amount_4']
+            stanki_sum4=machinery(type4[0],amount4)
+        except:
+            obj.stanki_name_4=None
+            obj.stanki_amount_4=0
+            obj.stanki_sum4=0
+
+        stanki_total_suma=stanki_sum1+stanki_sum2+stanki_sum3+stanki_sum4
+        obj.stanki_total_sum = stanki_total_suma
+
+
 
 
 
